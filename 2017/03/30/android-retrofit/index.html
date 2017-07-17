@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang=ko>
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     
     <title>안드로이드 Retrofit으로 API 통신하기 | PARK JI EUN</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="이번 강의에서는 안드로이드를 위한 HTTP 클라이언트 레트로핏을 이용해서 API 통신을 구현 해 보도록 하겠다.먼저, JSON 값을 돌려주는 서버가 준비 되어 있어야한다.여기서는 간단히…깃헙 contributors를 통해 살펴보겠다.주소는 https://api.github.com/repos/square/retrofit/contributors 이다. 목표ht">
 <meta name="keywords" content="안드로이드,통신,Retrofit,http,REST,RESTful,서버,백엔드,backend,API">
 <meta property="og:type" content="article">
@@ -20,9 +20,11 @@
 <meta name="twitter:description" content="이번 강의에서는 안드로이드를 위한 HTTP 클라이언트 레트로핏을 이용해서 API 통신을 구현 해 보도록 하겠다.먼저, JSON 값을 돌려주는 서버가 준비 되어 있어야한다.여기서는 간단히…깃헙 contributors를 통해 살펴보겠다.주소는 https://api.github.com/repos/square/retrofit/contributors 이다. 목표ht">
 <meta name="twitter:image" content="http://lx5475.github.io/uploads/and-retro-1.png">
     
+    <!-- hexo-auto-canonical -->
+    <link rel="canonical" href="http://lx5475.github.io/2017/03/30/android-retrofit/">
     
     
-        <link rel="alternate" href="/" title="PARK JI EUN" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="PARK JI EUN" type="application/atom+xml">
     
 
     
@@ -60,7 +62,7 @@ ga('send', 'pageview');
 
 
 </head>
-
+</html>
 <body>
     <div id="container">
         <header id="header">
@@ -83,14 +85,14 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -132,7 +134,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
     </div>
 
                 </td>
@@ -143,7 +145,7 @@ ga('send', 'pageview');
 
         <div class="outer">
             
-            <section id="main"><article id="post-android-retrofit" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-android-retrofit" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -180,12 +182,12 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>이번 강의에서는 안드로이드를 위한 HTTP 클라이언트 레트로핏을 이용해서 API 통신을 구현 해 보도록 하겠다.<br>먼저, JSON 값을 돌려주는 서버가 준비 되어 있어야한다.<br>여기서는 간단히…깃헙 contributors를 통해 살펴보겠다.<br>주소는 <a href="https://api.github.com/repos/square/retrofit/contributors" target="_blank" rel="external">https://api.github.com/repos/square/retrofit/contributors</a> 이다.</p>
-<h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p><a href="https://api.github.com/repos/square/retrofit/contributors" target="_blank" rel="external">https://api.github.com/repos/square/retrofit/contributors</a> 에 들어가면 아래와 같이 JSON 형식으로 된 정보들이 나온다.</p>
+            <p>이번 강의에서는 안드로이드를 위한 HTTP 클라이언트 레트로핏을 이용해서 API 통신을 구현 해 보도록 하겠다.<br>먼저, JSON 값을 돌려주는 서버가 준비 되어 있어야한다.<br>여기서는 간단히…깃헙 contributors를 통해 살펴보겠다.<br>주소는 <a href="https://api.github.com/repos/square/retrofit/contributors" rel="external nofollow noopener noreferrer" target="_blank">https://api.github.com/repos/square/retrofit/contributors</a> 이다.</p>
+<h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p><a href="https://api.github.com/repos/square/retrofit/contributors" rel="external nofollow noopener noreferrer" target="_blank">https://api.github.com/repos/square/retrofit/contributors</a> 에 들어가면 아래와 같이 JSON 형식으로 된 정보들이 나온다.</p>
 <p><img src="/uploads/and-retro-1.png" alt=""></p>
 <p>오늘 해볼 것은 저 정보들 중에서 특히 ‘login’ 정보를 TextView에 받아 오는 것이다.</p>
 <h3 id="build-gradle-app"><a href="#build-gradle-app" class="headerlink" title="build.gradle (app)"></a>build.gradle (app)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    ...</div><div class="line">    compile &apos;com.squareup.retrofit2:retrofit:2.2.0&apos;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>retrofit을 앱에 적용시키기 위해서 디펜던시 설정을 해준다.<br>위의 3번째 라인에 있는 한 줄을 추가시켜 주면된다.<br>그리고 컨버터로는 GSON을 사용할 것이기 때문에 아래의 한줄을 더 추가시켜준다.<br>(GSON이외에도 많은 컨버터들을 사용할 수 있다. &gt;&gt; <a href="http://devflow.github.io/retrofit-kr/" target="_blank" rel="external">공식문서</a> 참고)<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">compile &apos;com.squareup.retrofit2:converter-gson:2.2.0&apos;</div></pre></td></tr></table></figure></p>
+<p>retrofit을 앱에 적용시키기 위해서 디펜던시 설정을 해준다.<br>위의 3번째 라인에 있는 한 줄을 추가시켜 주면된다.<br>그리고 컨버터로는 GSON을 사용할 것이기 때문에 아래의 한줄을 더 추가시켜준다.<br>(GSON이외에도 많은 컨버터들을 사용할 수 있다. &gt;&gt; <a href="http://devflow.github.io/retrofit-kr/" rel="external nofollow noopener noreferrer" target="_blank">공식문서</a> 참고)<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">compile &apos;com.squareup.retrofit2:converter-gson:2.2.0&apos;</div></pre></td></tr></table></figure></p>
 <h3 id="activity-retrofit-xml"><a href="#activity-retrofit-xml" class="headerlink" title="activity_retrofit.xml"></a>activity_retrofit.xml</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"TextView"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/textView"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><code>res &gt; layout</code>에 <code>activity_retrofit.xml</code> 파일을 추가시켜 준다.<br>이 텍스트뷰에 카테고리 정보를 띄울 것이다.</p>
 <h3 id="RetrofitActivity-java"><a href="#RetrofitActivity-java" class="headerlink" title="RetrofitActivity.java"></a>RetrofitActivity.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RetrofitActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_retrofit);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -206,7 +208,7 @@ ga('send', 'pageview');
         <a class="tag-link" href="/tags/API/">API</a>, <a class="tag-link" href="/tags/REST/">REST</a>, <a class="tag-link" href="/tags/RESTful/">RESTful</a>, <a class="tag-link" href="/tags/Retrofit/">Retrofit</a>, <a class="tag-link" href="/tags/backend/">backend</a>, <a class="tag-link" href="/tags/http/">http</a>, <a class="tag-link" href="/tags/백엔드/">백엔드</a>, <a class="tag-link" href="/tags/서버/">서버</a>, <a class="tag-link" href="/tags/안드로이드/">안드로이드</a>, <a class="tag-link" href="/tags/통신/">통신</a>
     </div>
 
-              <br/><br/>
+              <br><br>
             </div>
             
         
@@ -219,7 +221,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/03/30/android-retrofit/" data-id="cj561zeir000bg6vaorbvbh6y" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/03/30/android-retrofit/" data-id="cj58cf2sg000b1xvaojjx0pvo" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -474,7 +476,7 @@ ga('send', 'pageview');
     <div class="outer">
         <div id="footer-info" class="inner">
             &copy; 2017 PARK JI EUN<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme by <a href="http://github.com/ppoffice" rel="external nofollow noopener noreferrer" target="_blank">PPOffice</a>
         </div>
     </div>
 </footer>
@@ -521,4 +523,3 @@ ga('send', 'pageview');
 
     </div>
 </body>
-</html>
