@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://lx5475.github.io/2017/07/18/post/</loc>
+        <lastmod>2017-07-18T13:03:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://lx5475.github.io/2017/07/18/longshan-21-40/</loc>
+        <lastmod>2017-07-18T12:56:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://lx5475.github.io/2017/07/18/longshan-1-20/</loc>
-        <lastmod>2017-07-18T12:46:31.000Z</lastmod>
+        <lastmod>2017-07-18T12:48:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -39,7 +55,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2016/07/08/android-php-korean/</loc>
+        <loc>http://lx5475.github.io/2016/06/27/android-parcelable/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,7 +63,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2016/06/27/android-parcelable/</loc>
+        <loc>http://lx5475.github.io/2016/07/08/android-php-korean/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
