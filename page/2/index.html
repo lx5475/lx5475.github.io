@@ -7,15 +7,15 @@
     <!-- Naver site -->
     <meta name="naver-site-verification" content="d352989877532dca648e4ee0f4df0dc8040e8be4">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="PARK JI EUN&apos;s portfolio &amp; blog">
+    <meta name="description" content="PARK JI EUN의 예술이 있는 개발 블로그">
 <meta property="og:type" content="website">
 <meta property="og:title" content="PARK JI EUN">
 <meta property="og:url" content="http://lx5475.github.io/page/2/index.html">
 <meta property="og:site_name" content="PARK JI EUN">
-<meta property="og:description" content="PARK JI EUN&apos;s portfolio &amp; blog">
+<meta property="og:description" content="PARK JI EUN의 예술이 있는 개발 블로그">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PARK JI EUN">
-<meta name="twitter:description" content="PARK JI EUN&apos;s portfolio &amp; blog">
+<meta name="twitter:description" content="PARK JI EUN의 예술이 있는 개발 블로그">
     
     <!-- hexo-auto-canonical -->
     <link rel="canonical" href="http://lx5475.github.io/page/2/">
@@ -143,6 +143,296 @@ ga('send', 'pageview');
         <div class="outer">
             
             <section id="main">
+    <article id="post-android-parcelable" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/06/27/android-parcelable/">안드로이드 Custom Object를 Intent로 넘기기, Parcelable 구현</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/06/27/android-parcelable/">
+            <time datetime="2016-06-27T11:20:00.000Z" itemprop="datePublished">2016-06-27</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="내가-만든-클래스를-넘겨보자"><a href="#내가-만든-클래스를-넘겨보자" class="headerlink" title="내가 만든 클래스를 넘겨보자!"></a>내가 만든 클래스를 넘겨보자!</h2><p>7월 업데이트를 위해 리팩토링을 하면서,<br>데이터 타입에 대한 정리는 끝났으니 이제 전송에 관련된 일을 처리해야했다.</p>
+<p><img src="/uploads/android-parce-1.png" alt=""></p>
+<p>나는 <code>ItemDB</code>라고 하는 클래스를 만들어  아이템 정보를 관리하고 있다.<br>그러나 특성상 ItemDB 자체를 인텐트로 넘겨야 더 좋은 성능을 낼 수 있는 상황이 왔다.<br><code>intent.putExtra(key, value)</code>로 보내어 value 값이 맞는 아이템을 500개 리스트에서 일일이 찾기 보다는<br>그냥 <code>ItemDB</code> 하나만 심플하게 보내는 방법이 좋아보였다.<br>그러나 <code>putExtra()</code>는 한정된 자료형만 전송할 수 있는 단점이 있기에, 어떻게 해결하면 좋을지 찾아보다가<br><code>Parcelable</code> 또는 <code>Serializable</code> 을 이용해 커스텀 오브젝트를 전송할 수 있다는 사실을 알게 되었다.</p>
+<h3 id="ItemDB-class"><a href="#ItemDB-class" class="headerlink" title="ItemDB.class"></a>ItemDB.class</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemDB</span> </span>&#123;    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TYPE_STRING = <span class="string">"string"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TYPE_DRAWABLE = <span class="string">"drawable"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> desc;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> hunger;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> armor;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> cooldown;</div><div class="line">    <span class="keyword">private</span> String attack;</div><div class="line">    <span class="keyword">private</span> String pc_ver;</div><div class="line">    <span class="keyword">private</span> String pe_ver;</div><div class="line">    <span class="keyword">private</span> String grid;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> icon;</div><div class="line">    <span class="keyword">private</span> Category category;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>대략 이러한 <code>ItemDB</code>라는 커스텀 클래스가 있다고 치자. (여기에 get/set 메소드를 더한)<br><code>Parcelable</code>을 이용하기 위해 이를 implement하여 구현해야 한다.<br>이를 구현하고 나면 <code>describeContents()</code>와 <code>writeToParcel(Parcel dest, int flags)</code> 라는 메소드를 처리해야한다.<br><code>describeContents()</code>같은 경우에는 놔둬도 되고, 중요한 부분은 <code>writeToParcel</code> 부분이다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemDB</span> <span class="keyword">implements</span> <span class="title">Parcelable</span> </span>&#123;    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TYPE_STRING = <span class="string">"string"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TYPE_DRAWABLE = <span class="string">"drawable"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> desc;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> hunger;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> armor;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> cooldown;</div><div class="line">    <span class="keyword">private</span> String attack;</div><div class="line">    <span class="keyword">private</span> String pc_ver;</div><div class="line">    <span class="keyword">private</span> String pe_ver;</div><div class="line">    <span class="keyword">private</span> String grid;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> icon;</div><div class="line">    <span class="keyword">private</span> Category category;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ItemDB</span><span class="params">(Parcel parcel)</span> </span>&#123;</div><div class="line">        <span class="comment">// must be same order with writeToParcel()</span></div><div class="line">        <span class="keyword">this</span>.name = parcel.readInt();</div><div class="line">        <span class="keyword">this</span>.desc = parcel.readInt();</div><div class="line">        <span class="keyword">this</span>.icon = parcel.readInt();</div><div class="line">        <span class="keyword">this</span>.hunger = parcel.readFloat();</div><div class="line">        <span class="keyword">this</span>.armor = parcel.readFloat();</div><div class="line">        <span class="keyword">this</span>.cooldown = parcel.readFloat();</div><div class="line">        <span class="keyword">this</span>.attack = parcel.readString();</div><div class="line">        <span class="keyword">this</span>.pc_ver = parcel.readString();</div><div class="line">        <span class="keyword">this</span>.pe_ver = parcel.readString();</div><div class="line">        <span class="keyword">this</span>.grid = parcel.readString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ItemDB</span><span class="params">(...)</span> </span>&#123;</div><div class="line">        <span class="comment">// your constructor</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// create Parcelable</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Parcelable.Creator&lt;ItemDB&gt; CREATOR = <span class="keyword">new</span> Parcelable.Creator&lt;ItemDB&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> ItemDB <span class="title">createFromParcel</span><span class="params">(Parcel parcel)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ItemDB(parcel);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> ItemDB[] newArray(<span class="keyword">int</span> size) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ItemDB[size];</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest, <span class="keyword">int</span> flags)</span> </span>&#123;</div><div class="line">        dest.writeInt(<span class="keyword">this</span>.name);</div><div class="line">        dest.writeInt(<span class="keyword">this</span>.desc);</div><div class="line">        dest.writeInt(<span class="keyword">this</span>.icon);</div><div class="line">        dest.writeFloat(<span class="keyword">this</span>.hunger);</div><div class="line">        dest.writeFloat(<span class="keyword">this</span>.armor);</div><div class="line">        dest.writeFloat(<span class="keyword">this</span>.cooldown);</div><div class="line">        dest.writeString(<span class="keyword">this</span>.attack);</div><div class="line">        dest.writeString(<span class="keyword">this</span>.pc_ver);</div><div class="line">        dest.writeString(<span class="keyword">this</span>.pe_ver);</div><div class="line">        dest.writeString(<span class="keyword">this</span>.grid);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> getName &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>구현한 모습이다!<br>35행은 Parcelable을 생성하는 코드다.<br><code>writeToParcel</code>에서 Parcel 목적지(dest)에다가 데이터를 포맷에 따라 차곡차곡 넣어주고,<br>Parcel이 있는 생성자에서 순서대로 꺼내오면 된다. (두 개의 순서는 같아야 한다!)<br>이제 Parcel을 구현했으니 직접 Intent로 옮겨보자!</p>
+<p>내 앱은 <code>ItemListActivity</code>에서 아이템을 클릭하면 <code>ItemInfoActivity</code>로 넘어가게 된다.</p>
+<h3 id="ItemListActivity-java"><a href="#ItemListActivity-java" class="headerlink" title="ItemListActivity.java"></a>ItemListActivity.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemListActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;    </div><div class="line">    ...</div><div class="line">    <span class="function">pubic <span class="keyword">void</span> <span class="title">startActivityByItem</span><span class="params">(ItemDB item)</span> </span>&#123;</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, ItemInfoActivity.class);</div><div class="line">        intent.putExtra(ITEM_KEY, item);</div><div class="line">        startActivity(intent);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>String 으로 키 값을 주고, <code>ItemDB</code> 자체를 넘겨주는게 이제는 된다!<br>그러면 받는건 어떻게 하는지 보자.</p>
+<h3 id="ItemInfoActivity-java"><a href="#ItemInfoActivity-java" class="headerlink" title="ItemInfoActivity.java"></a>ItemInfoActivity.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemListActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;    </div><div class="line">    ...</div><div class="line">    ItemDB item = (ItemDB) getIntent().getParcelableExtra(ITEM_KEY);</div><div class="line">    Log.e(<span class="string">"[ITEM] 이름 :"</span>, getResources().getString(item.getName()));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이런식으로 하면 Log에서는 클릭한 아이템 이름이 나오게 된다!</p>
+<p><img src="/uploads/android-parce-2.png" alt=""></p>
+<p>코코아 콩과 나침반을 누르니 정말 코코아 콩과 나침반이 찍힌다!<br>귀여워~</p>
+
+            <div class="article-tags">
+              
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/Custom/">Custom</a>, <a class="tag-link" href="/tags/Object/">Object</a>, <a class="tag-link" href="/tags/Parcel/">Parcel</a>, <a class="tag-link" href="/tags/Serializable/">Serializable</a>, <a class="tag-link" href="/tags/intent/">intent</a>, <a class="tag-link" href="/tags/parcelable/">parcelable</a>, <a class="tag-link" href="/tags/넘기기/">넘기기</a>, <a class="tag-link" href="/tags/안드로이드/">안드로이드</a>, <a class="tag-link" href="/tags/오브젝트/">오브젝트</a>
+    </div>
+
+              <br><br>
+            </div>
+            
+        
+        </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://lx5475.github.io/2016/06/27/android-parcelable/" data-id="cj5afi7la0006pdvaf3b1d0qp" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lx5475.github.io/2016/06/27/android-parcelable/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2016/06/27/android-parcelable/">댓글</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-android-shortcut" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/03/29/android-shortcut/">안드로이드 앱 최초 실행시 바탕화면에 아이콘(Shortcut) 생성하기</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/03/29/android-shortcut/">
+            <time datetime="2016-03-29T11:01:12.000Z" itemprop="datePublished">2016-03-29</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>안드로이드 앱 최초 실행시 자동으로 바탕화면에 아이콘(shortcut)을 생성해주는 코드다.<br>SharedPreferences의 “check”라는 키를 이용해<br>해당 키의 value가 비어있으면(isEmpty()) shortcut을 생성하고,<br>그 후에는 “exist”라는 value를 채워준다.</p>
+<p>SharedPreferences는 이렇듯 간단한 ON/OFF 설정에 이용하면 좋다.<br>사용법도 SQLDatabase보다 간단하며<br>앱이 삭제되지 않는 한 계속 지속되기 때문이다.</p>
+<p>if(pref.getString(“check”,””).isEmpty()) 이하 코드를 다르게 해서<br>앱 최초 실행시 취할 액션을 마음대로 꾸며보는 것도 좋다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//데스크탑 아이콘 생성</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createDesktopIcon</span><span class="params">()</span> </span>&#123;</div><div class="line">   SharedPreferences pref = getSharedPreferences(<span class="string">"pref"</span>, MODE_PRIVATE);</div><div class="line">   pref.getString(<span class="string">"check"</span>, <span class="string">""</span>);</div><div class="line"></div><div class="line">   <span class="keyword">if</span>(pref.getString(<span class="string">"check"</span>, <span class="string">""</span>).isEmpty())&#123;</div><div class="line">      Intent shortcutIntent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN);</div><div class="line">      shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);</div><div class="line">      shortcutIntent.setClassName(<span class="keyword">this</span>, getClass().getName());</div><div class="line">      shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|</div><div class="line">            Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);</div><div class="line">      Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);</div><div class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, getResources().getString(R.string.app_name)); <span class="comment">//앱 이름</span></div><div class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,</div><div class="line">            Intent.ShortcutIconResource.fromContext(<span class="keyword">this</span>, R.drawable.ic_launcher)); <span class="comment">//앱 아이콘</span></div><div class="line">      intent.putExtra(<span class="string">"duplicate"</span>, <span class="keyword">false</span>);</div><div class="line">      intent.setAction(<span class="string">"com.android.launcher.action.INSTALL_SHORTCUT"</span>);</div><div class="line">      sendBroadcast(intent);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   SharedPreferences.Editor editor = pref.edit();</div><div class="line">   editor.putString(<span class="string">"check"</span>, <span class="string">"exist"</span>);</div><div class="line">   editor.commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            <div class="article-tags">
+              
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/Shortcut/">Shortcut</a>, <a class="tag-link" href="/tags/개발/">개발</a>, <a class="tag-link" href="/tags/바로가기/">바로가기</a>, <a class="tag-link" href="/tags/바탕화면/">바탕화면</a>, <a class="tag-link" href="/tags/배경/">배경</a>, <a class="tag-link" href="/tags/생성/">생성</a>, <a class="tag-link" href="/tags/아이콘/">아이콘</a>, <a class="tag-link" href="/tags/안드로이드/">안드로이드</a>, <a class="tag-link" href="/tags/앱/">앱</a>, <a class="tag-link" href="/tags/어플/">어플</a>
+    </div>
+
+              <br><br>
+            </div>
+            
+        
+        </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://lx5475.github.io/2016/03/29/android-shortcut/" data-id="cj5afi7lf000bpdva8sqs809x" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lx5475.github.io/2016/03/29/android-shortcut/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2016/03/29/android-shortcut/">댓글</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-android-intent" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -215,7 +505,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2016/01/27/android-intent/" data-id="cj5aat5780004elvankip1316" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2016/01/27/android-intent/" data-id="cj5afi7l50004pdvahe8lt52s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -368,7 +658,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2016/01/26/android-button-tutorial/" data-id="cj5aat56w0000elvavznijujs" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2016/01/26/android-button-tutorial/" data-id="cj5afi7ks0000pdvaruuehh3m" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -458,7 +748,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">카테고리</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -468,6 +758,44 @@ ga('send', 'pageview');
         <h3 class="widget-title">최근 글</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/19/longshan-81-100/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/안녕용산사/">안녕용산사</a></p>
+                            <p class="item-title"><a href="/2017/07/19/longshan-81-100/" class="title">대만 용산사 점괘 해석 81-100수</a></p>
+                            <p class="item-date"><time datetime="2017-07-19T03:02:07.000Z" itemprop="datePublished">2017-07-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/19/longshan-61-80/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/안녕용산사/">안녕용산사</a></p>
+                            <p class="item-title"><a href="/2017/07/19/longshan-61-80/" class="title">대만 용산사 점괘 해석 61-80수</a></p>
+                            <p class="item-date"><time datetime="2017-07-19T02:55:04.000Z" itemprop="datePublished">2017-07-19</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -526,44 +854,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/07/15/android-newbie/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2017/07/15/android-newbie/" class="title">어플 개발 어떻게 시작하면되나요? 아무것도 몰라도 할 수 있을까요? Q&amp;A</a></p>
-                            <p class="item-date"><time datetime="2017-07-15T06:33:49.000Z" itemprop="datePublished">2017-07-15</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/07/15/android-splash/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2017/07/15/android-splash/" class="title">안드로이드 인트로(스플래시) 화면을 만들어보자</a></p>
-                            <p class="item-date"><time datetime="2017-07-15T05:14:20.000Z" itemprop="datePublished">2017-07-15</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -573,7 +863,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -582,7 +872,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">태그 클라우드</h3>
         <div class="widget tagcloud">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Bundle/" style="font-size: 10px;">Bundle</a> <a href="/tags/Custom/" style="font-size: 10px;">Custom</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Intent/" style="font-size: 10px;">Intent</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Parcel/" style="font-size: 10px;">Parcel</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Serializable/" style="font-size: 10px;">Serializable</a> <a href="/tags/Shortcut/" style="font-size: 10px;">Shortcut</a> <a href="/tags/activity/" style="font-size: 10px;">activity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/intent/" style="font-size: 10px;">intent</a> <a href="/tags/intro/" style="font-size: 10px;">intro</a> <a href="/tags/parcelable/" style="font-size: 10px;">parcelable</a> <a href="/tags/splash/" style="font-size: 10px;">splash</a> <a href="/tags/강의/" style="font-size: 10px;">강의</a> <a href="/tags/개발/" style="font-size: 10px;">개발</a> <a href="/tags/개발자/" style="font-size: 12.5px;">개발자</a> <a href="/tags/넘기기/" style="font-size: 10px;">넘기기</a> <a href="/tags/대만/" style="font-size: 15px;">대만</a> <a href="/tags/만드는법/" style="font-size: 10px;">만드는법</a> <a href="/tags/만들기/" style="font-size: 10px;">만들기</a> <a href="/tags/바로가기/" style="font-size: 10px;">바로가기</a> <a href="/tags/바탕화면/" style="font-size: 10px;">바탕화면</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/백엔드/" style="font-size: 10px;">백엔드</a> <a href="/tags/버튼/" style="font-size: 10px;">버튼</a> <a href="/tags/생성/" style="font-size: 10px;">생성</a> <a href="/tags/서버/" style="font-size: 10px;">서버</a> <a href="/tags/스플래시/" style="font-size: 10px;">스플래시</a> <a href="/tags/아이콘/" style="font-size: 10px;">아이콘</a> <a href="/tags/안드로이드/" style="font-size: 20px;">안드로이드</a> <a href="/tags/액티비티-전환/" style="font-size: 10px;">액티비티 전환</a> <a href="/tags/앱/" style="font-size: 12.5px;">앱</a> <a href="/tags/앱-개발/" style="font-size: 12.5px;">앱 개발</a> <a href="/tags/앱개발/" style="font-size: 12.5px;">앱개발</a> <a href="/tags/어플/" style="font-size: 12.5px;">어플</a> <a href="/tags/오브젝트/" style="font-size: 10px;">오브젝트</a> <a href="/tags/용산사/" style="font-size: 15px;">용산사</a> <a href="/tags/이벤트/" style="font-size: 10px;">이벤트</a> <a href="/tags/인텐트/" style="font-size: 10px;">인텐트</a> <a href="/tags/인트로/" style="font-size: 10px;">인트로</a> <a href="/tags/점괘/" style="font-size: 15px;">점괘</a> <a href="/tags/정보-전송/" style="font-size: 12.5px;">정보 전송</a> <a href="/tags/처리/" style="font-size: 10px;">처리</a> <a href="/tags/클릭/" style="font-size: 10px;">클릭</a> <a href="/tags/타이페이/" style="font-size: 15px;">타이페이</a> <a href="/tags/통신/" style="font-size: 12.5px;">통신</a> <a href="/tags/프래그먼트/" style="font-size: 10px;">프래그먼트</a> <a href="/tags/하는-방법/" style="font-size: 10px;">하는 방법</a> <a href="/tags/한글/" style="font-size: 10px;">한글</a> <a href="/tags/한글깨짐/" style="font-size: 10px;">한글깨짐</a> <a href="/tags/해석/" style="font-size: 15px;">해석</a> <a href="/tags/화면-전환/" style="font-size: 10px;">화면 전환</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 16.67px;">Android</a> <a href="/tags/Bundle/" style="font-size: 10px;">Bundle</a> <a href="/tags/Custom/" style="font-size: 10px;">Custom</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Intent/" style="font-size: 10px;">Intent</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Parcel/" style="font-size: 10px;">Parcel</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Serializable/" style="font-size: 10px;">Serializable</a> <a href="/tags/Shortcut/" style="font-size: 10px;">Shortcut</a> <a href="/tags/activity/" style="font-size: 10px;">activity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/intent/" style="font-size: 10px;">intent</a> <a href="/tags/intro/" style="font-size: 10px;">intro</a> <a href="/tags/parcelable/" style="font-size: 10px;">parcelable</a> <a href="/tags/splash/" style="font-size: 10px;">splash</a> <a href="/tags/강의/" style="font-size: 10px;">강의</a> <a href="/tags/개발/" style="font-size: 10px;">개발</a> <a href="/tags/개발자/" style="font-size: 13.33px;">개발자</a> <a href="/tags/넘기기/" style="font-size: 10px;">넘기기</a> <a href="/tags/대만/" style="font-size: 16.67px;">대만</a> <a href="/tags/만드는법/" style="font-size: 10px;">만드는법</a> <a href="/tags/만들기/" style="font-size: 10px;">만들기</a> <a href="/tags/바로가기/" style="font-size: 10px;">바로가기</a> <a href="/tags/바탕화면/" style="font-size: 10px;">바탕화면</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/백엔드/" style="font-size: 10px;">백엔드</a> <a href="/tags/버튼/" style="font-size: 10px;">버튼</a> <a href="/tags/생성/" style="font-size: 10px;">생성</a> <a href="/tags/서버/" style="font-size: 10px;">서버</a> <a href="/tags/스플래시/" style="font-size: 10px;">스플래시</a> <a href="/tags/아이콘/" style="font-size: 10px;">아이콘</a> <a href="/tags/안드로이드/" style="font-size: 20px;">안드로이드</a> <a href="/tags/액티비티-전환/" style="font-size: 10px;">액티비티 전환</a> <a href="/tags/앱/" style="font-size: 13.33px;">앱</a> <a href="/tags/앱-개발/" style="font-size: 13.33px;">앱 개발</a> <a href="/tags/앱개발/" style="font-size: 13.33px;">앱개발</a> <a href="/tags/어플/" style="font-size: 13.33px;">어플</a> <a href="/tags/오브젝트/" style="font-size: 10px;">오브젝트</a> <a href="/tags/용산사/" style="font-size: 16.67px;">용산사</a> <a href="/tags/이벤트/" style="font-size: 10px;">이벤트</a> <a href="/tags/인텐트/" style="font-size: 10px;">인텐트</a> <a href="/tags/인트로/" style="font-size: 10px;">인트로</a> <a href="/tags/점괘/" style="font-size: 16.67px;">점괘</a> <a href="/tags/정보-전송/" style="font-size: 13.33px;">정보 전송</a> <a href="/tags/처리/" style="font-size: 10px;">처리</a> <a href="/tags/클릭/" style="font-size: 10px;">클릭</a> <a href="/tags/타이페이/" style="font-size: 16.67px;">타이페이</a> <a href="/tags/통신/" style="font-size: 13.33px;">통신</a> <a href="/tags/프래그먼트/" style="font-size: 10px;">프래그먼트</a> <a href="/tags/하는-방법/" style="font-size: 10px;">하는 방법</a> <a href="/tags/한글/" style="font-size: 10px;">한글</a> <a href="/tags/한글깨짐/" style="font-size: 10px;">한글깨짐</a> <a href="/tags/해석/" style="font-size: 16.67px;">해석</a> <a href="/tags/화면-전환/" style="font-size: 10px;">화면 전환</a>
         </div>
     </div>
 
