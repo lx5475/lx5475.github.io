@@ -457,6 +457,33 @@
     </item>
     
     <item>
+      <title>Node.js 앱에서 NPM으로 Bootstrap/JQuery 다운 받아 사용하기</title>
+      <link>http://lx5475.github.io/2017/03/24/post/nodejs-static/</link>
+      <guid>http://lx5475.github.io/2017/03/24/post/nodejs-static/</guid>
+      <pubDate>Fri, 24 Mar 2017 03:12:47 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;static redirect를 사용해서 npm install로 다운받은 패키지들을 사용할 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;First-install-the-packages&quot;&gt;&lt;a href=&quot;#First-install-the-packages&quot; cla
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>static redirect를 사용해서 npm install로 다운받은 패키지들을 사용할 수 있다.</p>
+<h2 id="First-install-the-packages"><a href="#First-install-the-packages" class="headerlink" title="First install the packages:"></a>First install the packages:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install jquery</div><div class="line">$ npm install bootstrap</div></pre></td></tr></table></figure>
+<h2 id="Then-on-the-server-js"><a href="#Then-on-the-server-js" class="headerlink" title="Then on the server.js:"></a>Then on the server.js:</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line"><span class="comment">// prepare server</span></div><div class="line">app.use(<span class="string">'/api'</span>, api); <span class="comment">// redirect API calls</span></div><div class="line">app.use(<span class="string">'/'</span>, express.static(__dirname + <span class="string">'/www'</span>)); <span class="comment">// redirect root</span></div><div class="line">app.use(<span class="string">'/js'</span>, express.static(__dirname + <span class="string">'/node_modules/bootstrap/dist/js'</span>)); <span class="comment">// redirect bootstrap JS</span></div><div class="line">app.use(<span class="string">'/js'</span>, express.static(__dirname + <span class="string">'/node_modules/jquery/dist'</span>)); <span class="comment">// redirect JS jQuery</span></div><div class="line">app.use(<span class="string">'/css'</span>, express.static(__dirname + <span class="string">'/node_modules/bootstrap/dist/css'</span>)); <span class="comment">// redirect CSS bootstrap</span></div></pre></td></tr></table></figure>
+<h2 id="Then-finally-at-the-html"><a href="#Then-finally-at-the-html" class="headerlink" title="Then, finally, at the .html:"></a>Then, finally, at the .html:</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/css/bootstrap.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>하지만 이렇게 할 경우에는 해당 경로를 타고 가서 server.js 파일에 접근할 수가 있게 되기 때문에<br>그냥 npm으로 다운 받아서 복사해서 쓰는게 좋아보인다.</p>
+<p>물론 이렇게 로컬파일을 올리는 것보다도<br>CDN이 속도 측면에서 더욱 좋지만 CDN이 끊길 때를 대비해서 fallback을 제공하는 것이 더욱 좋다.</p>
+<blockquote>
+<p>CDN fallback 하기<br><a href="http://www.hanselman.com/blog/CDNsFailButYourScriptsDontHaveToFallbackFromCDNToLocalJQuery.aspx" rel="external nofollow noopener noreferrer" target="_blank">http://www.hanselman.com/blog/CDNsFailButYourScriptsDontHaveToFallbackFromCDNToLocalJQuery.aspx</a></p>
+</blockquote>
+<p>원문출처: <a href="http://stackoverflow.com/questions/26773767/purpose-of-installing-bootstrap-through-npm" rel="external nofollow noopener noreferrer" target="_blank">StackOverflow</a></p>
+]]></content:encoded>
+      
+      <comments>http://lx5475.github.io/2017/03/24/post/nodejs-static/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>안드로이드 Fragment에 정보 전달하기</title>
       <link>http://lx5475.github.io/2016/07/28/android-fragment/</link>
       <guid>http://lx5475.github.io/2016/07/28/android-fragment/</guid>
