@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>안드로이드 인트로(스플래시) 화면을 만들어보자 | PARK JI EUN</title>
+    <title>안드로이드 인트로(스플래시) 화면을 만들어보자 | geumSon</title>
     <!-- Naver site -->
     <meta name="naver-site-verification" content="d352989877532dca648e4ee0f4df0dc8040e8be4">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="안드로이드 인트로(스플래시) 화면을 만들어보자">
 <meta property="og:url" content="http://lx5475.github.io/2017/07/15/android-splash/index.html">
-<meta property="og:site_name" content="PARK JI EUN">
+<meta property="og:site_name" content="geumSon">
 <meta property="og:description" content="카카오톡, 네이버, 구글 등 여러 앱들은 대부분 스플래시 화면이라고 하는 것을 가지고 있다.앱 실행시 잠깐 로고가 뜨는 화면을 말하는데, 오늘은 그것을 만들어보려고 한다.내가 진행할 강의는 인터넷에 있는 다른 안드로이드 스플래시 화면 만들기 강의랑은 다른점이 있는데, 바로 Thread-Handler를 사용하지 않는다는 것이다.Handler를 사용해서 만드는">
 <meta property="og:image" content="http://lx5475.github.io/uploads/splash-1.png">
 <meta property="og:updated_time" content="2017-07-15T06:26:39.000Z">
@@ -25,7 +25,7 @@
     <link rel="canonical" href="http://lx5475.github.io/2017/07/15/android-splash/">
 
     
-        <link rel="alternate" href="/" title="PARK JI EUN" type="application/atom+xml">
+        <link rel="alternate" href="/" title="geumSon" type="application/atom+xml">
     
 
     
@@ -67,12 +67,14 @@ ga('send', 'pageview');
 <body>
     <div id="container">
         <header id="header">
+    <center class="header-inner">
+      <a href="/" id="logo">
+          
+          <span class="site-title">geumSon</span>
+      </a>
+    </center>
     <div id="header-main" class="header-inner">
         <div class="outer">
-            <a href="/" id="logo">
-                
-                <span class="site-title">PARK JI EUN</span>
-            </a>
             <nav id="main-nav">
                 
                     <a class="main-nav-link" href="/.">Home</a>
@@ -136,7 +138,9 @@ ga('send', 'pageview');
                     
     <div class="search-form">
         <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
     </div>
+
 
                 </td>
             </tr>
@@ -225,7 +229,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/15/android-splash/" data-id="cj5ag6p2m000k4lvam17zm4kp" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/15/android-splash/" data-id="cj5bqvmdw000bwovauo6dnbsi" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -479,7 +483,7 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 PARK JI EUN<br>
+            &copy; 2017 geumSon<br>
             Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme by <a href="http://github.com/ppoffice" rel="external nofollow noopener noreferrer" target="_blank">PPOffice</a>
         </div>
     </div>
