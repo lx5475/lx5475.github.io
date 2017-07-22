@@ -8,7 +8,7 @@
     <meta name="naver-site-verification" content="d352989877532dca648e4ee0f4df0dc8040e8be4">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="내가 만든 클래스를 넘겨보자!7월 업데이트를 위해 리팩토링을 하면서,데이터 타입에 대한 정리는 끝났으니 이제 전송에 관련된 일을 처리해야했다.  나는 ItemDB라고 하는 클래스를 만들어  아이템 정보를 관리하고 있다.그러나 특성상 ItemDB 자체를 인텐트로 넘겨야 더 좋은 성능을 낼 수 있는 상황이 왔다.intent.putExtra(key, value)">
-<meta name="keywords" content="Android,안드로이드,Custom,Object,parcelable,intent,넘기기,오브젝트,Serializable,Parcel">
+<meta name="keywords" content="안드로이드,Android,Custom,Object,parcelable,intent,넘기기,오브젝트,Serializable,Parcel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="안드로이드 Custom Object를 Intent로 넘기기, Parcelable 구현">
 <meta property="og:url" content="http://lx5475.github.io/2016/06/27/android-parcelable/index.html">
@@ -223,7 +223,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2016/06/27/android-parcelable/" data-id="cj5eweias0009atva98ffiroo" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2016/06/27/android-parcelable/" data-id="cj5ewhwaq0006ckvak2qx0m1k" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -340,7 +340,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">카테고리</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arts-By-Me/">Arts By Me</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arts-By-Me/">Arts By Me</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -373,25 +373,6 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/07/22/arts/arts-by-me-32/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
-                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-32/" class="title">D-2</a></p>
-                            <p class="item-date"><time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
                             <a href="/2017/07/22/arts/arts-by-me-33/" class="thumbnail">
     
     
@@ -404,6 +385,25 @@ ga('send', 'pageview');
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
                             <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-33/" class="title">Reaction</a></p>
+                            <p class="item-date"><time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/22/arts/arts-by-me-32/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
+                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-32/" class="title">D-2</a></p>
                             <p class="item-date"><time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time></p>
                         </div>
                     </li>
@@ -455,7 +455,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">39</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
