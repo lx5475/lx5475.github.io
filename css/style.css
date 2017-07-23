@@ -987,9 +987,9 @@ a.article-title:hover {
   font-family: Georgia, "Times New Roman", "Microsoft Yahei", serif;
   font-size: 1.1em;
   margin: 0 -20px;
-  padding: 6px 20px 6px 54px;
-  background: #ececec;
-  border-left: 4px solid #ddd;
+  padding: 3px 20px 3px 54px;
+  background: #f5f5f5;
+  border-left: 5px solid #ddd;
 }
 .article-entry blockquote:before {
   top: 20px;

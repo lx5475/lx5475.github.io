@@ -8,7 +8,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>금손의 예술이 있는 개발 블로그</description>
-    <pubDate>Sun, 23 Jul 2017 16:09:21 GMT</pubDate>
+    <pubDate>Sun, 23 Jul 2017 16:14:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,18 +18,14 @@
       <pubDate>Sun, 23 Jul 2017 14:20:01 GMT</pubDate>
       <description>
       
-        &lt;p&gt;안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.&lt;br&gt;안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.&lt;br&gt;이 강의는 유튜브 동영상과 함께 진행됩니다!&lt;/p&gt;
-&lt;h2 id=&quot;각자의-스타일에-맞게-강의를-들어주시면-
+        &lt;p&gt;안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.&lt;br&gt;안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.&lt;br&gt;이 강의는 유튜브 동영상과 함께 진행됩니다!&lt;br&gt;각자의 스타일에 맞게 강의를 들어주시면 됩니다.&lt;/p&gt;
+
       
       </description>
       
-      <content:encoded><![CDATA[<p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.<br>이 강의는 유튜브 동영상과 함께 진행됩니다!</p>
-<h2 id="각자의-스타일에-맞게-강의를-들어주시면-됩니다"><a href="#각자의-스타일에-맞게-강의를-들어주시면-됩니다" class="headerlink" title="각자의 스타일에 맞게 강의를 들어주시면 됩니다."></a>각자의 스타일에 맞게 강의를 들어주시면 됩니다.</h2><h2 id="강의-커리큘럼"><a href="#강의-커리큘럼" class="headerlink" title="강의 커리큘럼"></a>강의 커리큘럼</h2><p><strong>1강</strong> 오리엔테이션 : 안드로이드 프로젝트 구조 알아보기</p>
-<p><strong>2강</strong> 초간단 주사위 앱 만들기 : TextView, Button 다루기</p>
-<p><strong>3강</strong> 화면을 넘겨보자 : Intent</p>
-<p><strong>4강</strong> 리스트 만들기 : ListView</p>
-<p><strong>5강</strong> 즐겨찾기 앱 만들기</p>
-<p><strong>6강</strong> 라이브러리 활용하기</p>
+      <content:encoded><![CDATA[<p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.<br>이 강의는 유튜브 동영상과 함께 진행됩니다!<br>각자의 스타일에 맞게 강의를 들어주시면 됩니다.</p>
+<hr>
+<h2 id="강의-커리큘럼"><a href="#강의-커리큘럼" class="headerlink" title="강의 커리큘럼"></a>강의 커리큘럼</h2><p><strong>1강</strong> 오리엔테이션 : 안드로이드 프로젝트 구조 알아보기<br><br><strong>2강</strong> 초간단 주사위 앱 만들기 : TextView, Button 다루기<br><br><strong>3강</strong> 화면을 넘겨보자 : Intent<br><br><strong>4강</strong> 리스트 만들기 : ListView<br><br><strong>5강</strong> 즐겨찾기 앱 만들기<br><br><strong>6강</strong> 라이브러리 활용하기<br></p>
 <hr>
 <h2 id="강의로-얻게-되는것"><a href="#강의로-얻게-되는것" class="headerlink" title="강의로 얻게 되는것"></a>강의로 얻게 되는것</h2><p>안드로이드 앱의 기본 작동 원리를 배우게 됩니다!<br>이것만으로도 충분히 앱 서비스를 만들 수 있습니다.<br>여러분의 상상력과 아이디어와 함께라면요.<br>* <strong>주의</strong> 서버(백엔드) 및 DB에 관해서는 다루지 않습니다.</p>
 <hr>
