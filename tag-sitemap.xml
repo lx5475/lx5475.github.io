@@ -184,6 +184,13 @@
     </url>
 
     <url>
+        <loc>http://lx5475.github.io/tags/%EC%95%B1-%EA%B0%9C%EB%B0%9C/</loc>
+        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://lx5475.github.io/tags/%ED%94%84%EB%9E%98%EA%B7%B8%EB%A8%BC%ED%8A%B8/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -199,13 +206,6 @@
 
     <url>
         <loc>http://lx5475.github.io/tags/Fragment/</loc>
-        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://lx5475.github.io/tags/%EC%95%B1-%EA%B0%9C%EB%B0%9C/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
