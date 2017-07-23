@@ -8,7 +8,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>금손의 예술이 있는 개발 블로그</description>
-    <pubDate>Sun, 23 Jul 2017 16:00:55 GMT</pubDate>
+    <pubDate>Sun, 23 Jul 2017 16:09:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -19,21 +19,23 @@
       <description>
       
         &lt;p&gt;안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.&lt;br&gt;안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.&lt;br&gt;이 강의는 유튜브 동영상과 함께 진행됩니다!&lt;/p&gt;
-&lt;p&gt;각자의 스타일에 맞게 강의를 들어주시면 됩니다.&lt;
+&lt;h2 id=&quot;각자의-스타일에-맞게-강의를-들어주시면-
       
       </description>
       
       <content:encoded><![CDATA[<p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.<br>이 강의는 유튜브 동영상과 함께 진행됩니다!</p>
-<p>각자의 스타일에 맞게 강의를 들어주시면 됩니다.</p>
-<h2 id="강의-커리큘럼"><a href="#강의-커리큘럼" class="headerlink" title="강의 커리큘럼"></a>강의 커리큘럼</h2><p><strong>1강</strong> 오리엔테이션 : 안드로이드 프로젝트 구조 알아보기</p>
+<h2 id="각자의-스타일에-맞게-강의를-들어주시면-됩니다"><a href="#각자의-스타일에-맞게-강의를-들어주시면-됩니다" class="headerlink" title="각자의 스타일에 맞게 강의를 들어주시면 됩니다."></a>각자의 스타일에 맞게 강의를 들어주시면 됩니다.</h2><h2 id="강의-커리큘럼"><a href="#강의-커리큘럼" class="headerlink" title="강의 커리큘럼"></a>강의 커리큘럼</h2><p><strong>1강</strong> 오리엔테이션 : 안드로이드 프로젝트 구조 알아보기</p>
 <p><strong>2강</strong> 초간단 주사위 앱 만들기 : TextView, Button 다루기</p>
 <p><strong>3강</strong> 화면을 넘겨보자 : Intent</p>
 <p><strong>4강</strong> 리스트 만들기 : ListView</p>
 <p><strong>5강</strong> 즐겨찾기 앱 만들기</p>
 <p><strong>6강</strong> 라이브러리 활용하기</p>
+<hr>
 <h2 id="강의로-얻게-되는것"><a href="#강의로-얻게-되는것" class="headerlink" title="강의로 얻게 되는것"></a>강의로 얻게 되는것</h2><p>안드로이드 앱의 기본 작동 원리를 배우게 됩니다!<br>이것만으로도 충분히 앱 서비스를 만들 수 있습니다.<br>여러분의 상상력과 아이디어와 함께라면요.<br>* <strong>주의</strong> 서버(백엔드) 및 DB에 관해서는 다루지 않습니다.</p>
+<hr>
 <h2 id="안드로이드-스튜디오-설치하기-amp-시작하기"><a href="#안드로이드-스튜디오-설치하기-amp-시작하기" class="headerlink" title="안드로이드 스튜디오 설치하기 &amp; 시작하기"></a>안드로이드 스튜디오 설치하기 &amp; 시작하기</h2><p><a href="https://developer.android.com/studio/index.html?hl=ko" rel="external nofollow noopener noreferrer" target="_blank">https://developer.android.com/studio/index.html?hl=ko</a></p>
 <p>안드로이드 앱은 Android Studio에서 만듭니다.<br>Android Studio는 은근히 높은 사양을 요구합니다.</p>
+<hr>
 <h2 id="안드로이드-프로젝트의-구조"><a href="#안드로이드-프로젝트의-구조" class="headerlink" title="안드로이드 프로젝트의 구조"></a>안드로이드 프로젝트의 구조</h2><p><img src="/uploads/geumsons/geumsons_1_1.png" alt=""></p>
 <p>대강 펼쳐본 안드로이드 프로젝트의 구조입니다.<br>섹션별로 나누어서 설명하도록 하겠습니다.</p>
 <h3 id="앱-설정-관련-부분"><a href="#앱-설정-관련-부분" class="headerlink" title="앱 설정 관련 부분"></a>앱 설정 관련 부분</h3><p>앱 설정 관련 부분으로는 <code>manifests &gt; AndroidManifest.xml</code>과<br><code>Gradle Scripts &gt; build.gradle (app 수준)</code>, <code>Gradle Scripts &gt; build.gradle (프로젝트 수준)</code> 3가지 정도가 있겠습니다.<br>이 중에서 <code>Gradle Scripts &gt; build.gradle (프로젝트 수준)</code>은 자주 만지지 않습니다.</p>
@@ -92,15 +94,14 @@
       
         &lt;p&gt;안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.&lt;br&gt;오늘은 주사위 앱을 만들면서 버튼 클릭 액션을 배워보겠습니다.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/uploads/geumsons/guemson_2_0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p
+&lt;h
       
       </description>
       
       <content:encoded><![CDATA[<p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>오늘은 주사위 앱을 만들면서 버튼 클릭 액션을 배워보겠습니다.</p>
 <p><img src="/uploads/geumsons/guemson_2_0.png" alt=""></p>
-<p>버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다.</p>
-<h2 id="프로젝트-만들기"><a href="#프로젝트-만들기" class="headerlink" title="프로젝트 만들기"></a>프로젝트 만들기</h2><p>안드로이드 스튜디오에서 <code>File &gt; New &gt; New projects</code>를 눌러 프로젝트를 만듭니다.<br>Application Name은 영어 대소문자로 자유롭게 해 주세요. (예: DiceApplication)<br>그대로 <code>Next &gt; Next &gt; Finish</code>를 해서 프로젝트를 만들어줍니다.</p>
-<h2 id="UI-구성하기"><a href="#UI-구성하기" class="headerlink" title="UI 구성하기"></a>UI 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><img src="/uploads/geumsons/guemson_2_2.png" alt=""><br><code>res &gt; layout &gt; activity_main.xml</code>을 수정 해 봅시다.<br>위와 같은 화면으로 만들 것입니다.</p>
+<h2 id="버튼을-클릭하면-1-6-사이의-숫자가-랜덤하게-표시되는-앱입니다"><a href="#버튼을-클릭하면-1-6-사이의-숫자가-랜덤하게-표시되는-앱입니다" class="headerlink" title="버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다."></a>버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다.</h2><h2 id="프로젝트-만들기"><a href="#프로젝트-만들기" class="headerlink" title="프로젝트 만들기"></a>프로젝트 만들기</h2><p>안드로이드 스튜디오에서 <code>File &gt; New &gt; New projects</code>를 눌러 프로젝트를 만듭니다.<br>Application Name은 영어 대소문자로 자유롭게 해 주세요. (예: DiceApplication)</p>
+<h2 id="그대로-Next-gt-Next-gt-Finish를-해서-프로젝트를-만들어줍니다"><a href="#그대로-Next-gt-Next-gt-Finish를-해서-프로젝트를-만들어줍니다" class="headerlink" title="그대로 Next &gt; Next &gt; Finish를 해서 프로젝트를 만들어줍니다."></a>그대로 <code>Next &gt; Next &gt; Finish</code>를 해서 프로젝트를 만들어줍니다.</h2><h2 id="UI-구성하기"><a href="#UI-구성하기" class="headerlink" title="UI 구성하기"></a>UI 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><img src="/uploads/geumsons/guemson_2_2.png" alt=""><br><code>res &gt; layout &gt; activity_main.xml</code>을 수정 해 봅시다.<br>위와 같은 화면으로 만들 것입니다.</p>
 <blockquote>
 <p>안드로이드에서 UI를 만들때는 <code>res &gt; layout</code> 안에 만들어주면 됩니다.</p>
 </blockquote>
@@ -108,6 +109,7 @@
 <p>TextView 하나와 Button 하나를 자유롭게 배치 해 주시고,<br>각각 뷰에 id를 적어줍니다.</p>
 <p>id는 그 뷰를 식별하기 위한 고유값입니다.<br>예제에서 TextView에는 <code>tv_result</code>, Button에는 <code>btn_roll</code>이라고 id를 붙여주었는데요,<br>이렇게 규칙적이고 통일성있는 이름을 지어주시면 더 좋습니다.</p>
 <p>아래는 예제 코드입니다.<br>여러가지 만져보시면서 각각 속성들이 어떻게 돌아가는지 살펴보세요.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.lx5475.course_1.MainActivity"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tv_result"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Roll the Dice!"</span></div><div class="line">            <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_centerInParent</span>=<span class="string">"false"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"36sp"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Roll"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/btn_roll"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
 <h2 id="프로그래밍-하기"><a href="#프로그래밍-하기" class="headerlink" title="프로그래밍 하기"></a>프로그래밍 하기</h2><h3 id="MainActivity-java"><a href="#MainActivity-java" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h3><p><code>&lt;패키지 네임&gt; &gt; MainActivity.java</code> 파일을 열어봅시다.<br>아마도 대략 아래와 같은 상태일 것입니다.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lx5475.course_1;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>setContentView(R.layout.activity_main);</code>에서 이 액티비티가 우리가 방금 만든<br><code>activity_main.xml</code>의 화면을 보여주고 있다는 것을 알 수 있습니다.</p>
 <p><code>onCreate()</code>는 화면이 생성될때 자동으로 실행되는 함수입니다.<br>거의 main함수라고 보시면 될 것 같네요. 이 블록 안에다가 코드를 적어주도록 하겠습니다.</p>
@@ -118,8 +120,8 @@
 <p>2) “xml에 정의한 뷰를 불러오려면 <code>findViewById()</code>를 사용하는구나~”</p>
 <p>3) “TextView의 글자를 바꾸려면 <code>setText()</code>를 사용하는구나!”</p>
 </blockquote>
-<p>간단하죠?<br>이 코드를 눈감고 못 쓰신다고 해서 코딩을 못하는게 아니라는 겁니다!<br>저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다.</p>
-<h2 id="오늘-배운걸로-해볼-수-있는-것들"><a href="#오늘-배운걸로-해볼-수-있는-것들" class="headerlink" title="오늘 배운걸로 해볼 수 있는 것들"></a>오늘 배운걸로 해볼 수 있는 것들</h2><p>오늘 배운 OnClickListener를 이용해서 아래와 같은 것도 시도 해 보세요.<br>여러분의 상상력을 동원해서 에러와 맞서싸우며 앱을 가지고 놀아보세요!</p>
+<p>간단하죠?<br>이 코드를 눈감고 못 쓰신다고 해서 코딩을 못하는게 아니라는 겁니다!</p>
+<h2 id="저도-물론-눈감고-못씁니다-기억안날땐-그때-그때-찾아보면서-그렇게-익혀나가면-되는겁니다"><a href="#저도-물론-눈감고-못씁니다-기억안날땐-그때-그때-찾아보면서-그렇게-익혀나가면-되는겁니다" class="headerlink" title="저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다."></a>저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다.</h2><h2 id="오늘-배운걸로-해볼-수-있는-것들"><a href="#오늘-배운걸로-해볼-수-있는-것들" class="headerlink" title="오늘 배운걸로 해볼 수 있는 것들"></a>오늘 배운걸로 해볼 수 있는 것들</h2><p>오늘 배운 OnClickListener를 이용해서 아래와 같은 것도 시도 해 보세요.<br>여러분의 상상력을 동원해서 에러와 맞서싸우며 앱을 가지고 놀아보세요!</p>
 <blockquote>
 <p>1) 버튼을 클릭하면 텍스트 뷰에 있는 값을 Log 또는 Toast 메세지로 출력하기</p>
 <p>2) 버튼을 클릭하면 텍스트 뷰의 글자 크기가 커지도록 하기</p>
@@ -152,25 +154,6 @@
     </item>
     
     <item>
-      <title>D-2</title>
-      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</link>
-      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</guid>
-      <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160708_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160708_2.png" alt=""></p>
-<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>궁금증을 자극하는 그림.</p>
-]]></content:encoded>
-      
-      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>Reaction</title>
       <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</link>
       <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</guid>
@@ -187,6 +170,25 @@
 ]]></content:encoded>
       
       <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>D-2</title>
+      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</link>
+      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</guid>
+      <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160708_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160708_2.png" alt=""></p>
+<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>궁금증을 자극하는 그림.</p>
+]]></content:encoded>
+      
+      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/#disqus_thread</comments>
     </item>
     
     <item>
