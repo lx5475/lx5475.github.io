@@ -8,7 +8,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>금손의 예술이 있는 개발 블로그</description>
-    <pubDate>Sat, 22 Jul 2017 06:12:52 GMT</pubDate>
+    <pubDate>Sun, 23 Jul 2017 14:04:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,12 +18,12 @@
       <pubDate>Sat, 22 Jul 2017 06:09:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160806.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-8월-6일&quot;&gt;&lt;a href=&quot;#2016년-8월-6일&quot; class=&quot;headerlink&quot; title=&quot;2016년 8월 6일&quot;&gt;&lt;/a&gt;2
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160806.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-8월-6일&quot;&gt;&lt;a href=&quot;#2016년-8월-6일&quot; class=&quot;headerlink&quot; title=&quot;2016년 8월 6일&quot;&gt;&lt;/a&gt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160806.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160806.png" alt=""></p>
 <h2 id="2016년-8월-6일"><a href="#2016년-8월-6일" class="headerlink" title="2016년 8월 6일"></a>2016년 8월 6일</h2><p>아크릴 물감으로 그렸다.<br>새우는 너무 좋다…</p>
 <p>엄마께서는 이 그림이 무슨 의미냐고 했다.</p>
 <p>심오한 의미를 찾을 필요없이 그냥 새우가 먹고싶어 그린거다.</p>
@@ -33,41 +33,41 @@
     </item>
     
     <item>
-      <title>Reaction</title>
-      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</link>
-      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</guid>
-      <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160708.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/a&gt;2
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160708.png" alt=""></p>
-<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>그리고 그 리액션.</p>
-]]></content:encoded>
-      
-      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>D-2</title>
       <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</link>
       <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</guid>
       <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160708_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/a
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160708_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160708_2.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160708_2.png" alt=""></p>
 <h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>궁금증을 자극하는 그림.</p>
 ]]></content:encoded>
       
       <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Reaction</title>
+      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</link>
+      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</guid>
+      <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160708.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/a&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160708.png" alt=""></p>
+<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>그리고 그 리액션.</p>
+]]></content:encoded>
+      
+      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/#disqus_thread</comments>
     </item>
     
     <item>
@@ -77,12 +77,12 @@
       <pubDate>Sat, 22 Jul 2017 06:06:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160305.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-3월-5일&quot;&gt;&lt;a href=&quot;#2016년-3월-5일&quot; class=&quot;headerlink&quot; title=&quot;2016년 3월 5일&quot;&gt;&lt;/a&gt;2
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160305.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-3월-5일&quot;&gt;&lt;a href=&quot;#2016년-3월-5일&quot; class=&quot;headerlink&quot; title=&quot;2016년 3월 5일&quot;&gt;&lt;/a&gt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160305.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160305.png" alt=""></p>
 <h2 id="2016년-3월-5일"><a href="#2016년-3월-5일" class="headerlink" title="2016년 3월 5일"></a>2016년 3월 5일</h2><p>원디렉션의 Truly Madly Deeply를 듣고 만들어보고 싶었다.<br>플랫디자인 속에서도 이럴때만큼은 다시, 스큐어몰피즘.</p>
 ]]></content:encoded>
       
@@ -96,12 +96,12 @@
       <pubDate>Sat, 22 Jul 2017 06:04:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160224.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-2월-24일&quot;&gt;&lt;a href=&quot;#2016년-2월-24일&quot; class=&quot;headerlink&quot; title=&quot;2016년 2월 24일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160224.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-2월-24일&quot;&gt;&lt;a href=&quot;#2016년-2월-24일&quot; class=&quot;headerlink&quot; title=&quot;2016년 2월 24일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160224.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160224.png" alt=""></p>
 <h2 id="2016년-2월-24일"><a href="#2016년-2월-24일" class="headerlink" title="2016년 2월 24일"></a>2016년 2월 24일</h2><p>비오는 날의 진과스<br>구름이 잔뜩껴서 동양적이고 신비로웠다.</p>
 ]]></content:encoded>
       
@@ -115,12 +115,12 @@
       <pubDate>Sat, 22 Jul 2017 06:02:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160218.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-2월-18일&quot;&gt;&lt;a href=&quot;#2016년-2월-18일&quot; class=&quot;headerlink&quot; title=&quot;2016년 2월 18일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160218.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-2월-18일&quot;&gt;&lt;a href=&quot;#2016년-2월-18일&quot; class=&quot;headerlink&quot; title=&quot;2016년 2월 18일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160218.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160218.png" alt=""></p>
 <h2 id="2016년-2월-18일"><a href="#2016년-2월-18일" class="headerlink" title="2016년 2월 18일"></a>2016년 2월 18일</h2><p>부산에서 열리는 아트 페어를 홍보하면 좋을…<br>이미지를 그려보았다.</p>
 ]]></content:encoded>
       
@@ -134,12 +134,12 @@
       <pubDate>Sat, 22 Jul 2017 06:01:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160215.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-2월-15일&quot;&gt;&lt;a href=&quot;#2016년-2월-15일&quot; class=&quot;headerlink&quot; title=&quot;2016년 2월 15일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160215.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-2월-15일&quot;&gt;&lt;a href=&quot;#2016년-2월-15일&quot; class=&quot;headerlink&quot; title=&quot;2016년 2월 15일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160215.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160215.png" alt=""></p>
 <h2 id="2016년-2월-15일"><a href="#2016년-2월-15일" class="headerlink" title="2016년 2월 15일"></a>2016년 2월 15일</h2><p>마인크래프트 주인공 스티브의 여정을 실사판으로 표현한다면 어떨까?<br>한 번 그려보았다.</p>
 ]]></content:encoded>
       
@@ -153,12 +153,12 @@
       <pubDate>Sat, 22 Jul 2017 05:59:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160128.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-1월-28일&quot;&gt;&lt;a href=&quot;#2016년-1월-28일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 28일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160128.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-1월-28일&quot;&gt;&lt;a href=&quot;#2016년-1월-28일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 28일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160128.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160128.png" alt=""></p>
 <h2 id="2016년-1월-28일"><a href="#2016년-1월-28일" class="headerlink" title="2016년 1월 28일"></a>2016년 1월 28일</h2><p>공모전에 나가면서 디자인한 열감지 캐릭터다.</p>
 ]]></content:encoded>
       
@@ -172,12 +172,12 @@
       <pubDate>Sat, 22 Jul 2017 05:57:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160112.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-1월-12일&quot;&gt;&lt;a href=&quot;#2016년-1월-12일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 12일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160112.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-1월-12일&quot;&gt;&lt;a href=&quot;#2016년-1월-12일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 12일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160112.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160112.png" alt=""></p>
 <h2 id="2016년-1월-12일"><a href="#2016년-1월-12일" class="headerlink" title="2016년 1월 12일"></a>2016년 1월 12일</h2><p>디자인 자판기 시리즈 2탄.</p>
 ]]></content:encoded>
       
@@ -210,12 +210,12 @@
       <pubDate>Sat, 22 Jul 2017 05:51:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160108.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-1월-8일&quot;&gt;&lt;a href=&quot;#2016년-1월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 8일&quot;&gt;&lt;/a&gt;2
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160108.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-1월-8일&quot;&gt;&lt;a href=&quot;#2016년-1월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 8일&quot;&gt;&lt;/a&gt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160108.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160108.png" alt=""></p>
 <h2 id="2016년-1월-8일"><a href="#2016년-1월-8일" class="headerlink" title="2016년 1월 8일"></a>2016년 1월 8일</h2><p>나는 남들보다 시간을 두려워하고, 시간을 소중히여기는 경향이 있는 것같다.<br>어제와 내일은 사람들과 이야기하기 위한 관념적인 것일 뿐,<br>내가 가진건 오늘과 지금 이 시간 밖에 없다.</p>
 <p>지금을 소중하게 여긴다면,<br>나는 살면서 매 순간을 소중하게 생각할 수 있을 것이다.</p>
 <p>그래서 지금은 그 무엇보다 가치있다.</p>
@@ -231,12 +231,12 @@
       <pubDate>Sat, 22 Jul 2017 05:50:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20160107.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-1월-7일&quot;&gt;&lt;a href=&quot;#2016년-1월-7일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 7일&quot;&gt;&lt;/a&gt;2
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160107.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-1월-7일&quot;&gt;&lt;a href=&quot;#2016년-1월-7일&quot; class=&quot;headerlink&quot; title=&quot;2016년 1월 7일&quot;&gt;&lt;/a&gt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20160107.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160107.png" alt=""></p>
 <h2 id="2016년-1월-7일"><a href="#2016년-1월-7일" class="headerlink" title="2016년 1월 7일"></a>2016년 1월 7일</h2><p>좀비 캐릭터를 픽셀아트로 만든 것이다.<br>이으면 달려가는 포즈가 된다!</p>
 ]]></content:encoded>
       
@@ -250,12 +250,12 @@
       <pubDate>Sat, 22 Jul 2017 05:49:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151222.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-12월-22일&quot;&gt;&lt;a href=&quot;#2015년-12월-22일&quot; class=&quot;headerlink&quot; title=&quot;2015년 12월 22일&quot;
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151222.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-12월-22일&quot;&gt;&lt;a href=&quot;#2015년-12월-22일&quot; class=&quot;headerlink&quot; title=&quot;2015년 12월 22일
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151222.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151222.png" alt=""></p>
 <h2 id="2015년-12월-22일"><a href="#2015년-12월-22일" class="headerlink" title="2015년 12월 22일"></a>2015년 12월 22일</h2><p>술로 전하는 일침!</p>
 ]]></content:encoded>
       
@@ -269,12 +269,12 @@
       <pubDate>Sat, 22 Jul 2017 05:48:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151217.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-12월-17일&quot;&gt;&lt;a href=&quot;#2015년-12월-17일&quot; class=&quot;headerlink&quot; title=&quot;2015년 12월 17일&quot;
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151217.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-12월-17일&quot;&gt;&lt;a href=&quot;#2015년-12월-17일&quot; class=&quot;headerlink&quot; title=&quot;2015년 12월 17일
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151217.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151217.png" alt=""></p>
 <h2 id="2015년-12월-17일"><a href="#2015년-12월-17일" class="headerlink" title="2015년 12월 17일"></a>2015년 12월 17일</h2><p>앤디워홀 전시를 다녀오다.</p>
 ]]></content:encoded>
       
@@ -288,12 +288,12 @@
       <pubDate>Sat, 22 Jul 2017 03:51:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151216.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-12월-16일&quot;&gt;&lt;a href=&quot;#2015년-12월-16일&quot; class=&quot;headerlink&quot; title=&quot;2015년 12월 16일&quot;
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151216.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-12월-16일&quot;&gt;&lt;a href=&quot;#2015년-12월-16일&quot; class=&quot;headerlink&quot; title=&quot;2015년 12월 16일
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151216.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151216.png" alt=""></p>
 <h2 id="2015년-12월-16일"><a href="#2015년-12월-16일" class="headerlink" title="2015년 12월 16일"></a>2015년 12월 16일</h2><p>쓸데없는데 시간을 보내는 폐인이 되는 것이라…?</p>
 ]]></content:encoded>
       
@@ -307,12 +307,12 @@
       <pubDate>Sat, 22 Jul 2017 03:50:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151111.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-11월-11일&quot;&gt;&lt;a href=&quot;#2015년-11월-11일&quot; class=&quot;headerlink&quot; title=&quot;2015년 11월 11일&quot;
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151111.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-11월-11일&quot;&gt;&lt;a href=&quot;#2015년-11월-11일&quot; class=&quot;headerlink&quot; title=&quot;2015년 11월 11일
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151111.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151111.png" alt=""></p>
 <h2 id="2015년-11월-11일"><a href="#2015년-11월-11일" class="headerlink" title="2015년 11월 11일"></a>2015년 11월 11일</h2><p>성공한 프리랜서 디자이너님과의 만남 후…<br>나는 ‘괴물’이 되겠다고 다짐했다.</p>
 ]]></content:encoded>
       
@@ -326,12 +326,12 @@
       <pubDate>Sat, 22 Jul 2017 03:48:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151016.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-10월-16일&quot;&gt;&lt;a href=&quot;#2015년-10월-16일&quot; class=&quot;headerlink&quot; title=&quot;2015년 10월 16일&quot;
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151016.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-10월-16일&quot;&gt;&lt;a href=&quot;#2015년-10월-16일&quot; class=&quot;headerlink&quot; title=&quot;2015년 10월 16일
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151016.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151016.png" alt=""></p>
 <h2 id="2015년-10월-16일"><a href="#2015년-10월-16일" class="headerlink" title="2015년 10월 16일"></a>2015년 10월 16일</h2><p>사실 난 아무렇지도 않아</p>
 ]]></content:encoded>
       
@@ -345,12 +345,12 @@
       <pubDate>Sat, 22 Jul 2017 03:47:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151003.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-10월-3일&quot;&gt;&lt;a href=&quot;#2015년-10월-3일&quot; class=&quot;headerlink&quot; title=&quot;2015년 10월 3일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151003.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-10월-3일&quot;&gt;&lt;a href=&quot;#2015년-10월-3일&quot; class=&quot;headerlink&quot; title=&quot;2015년 10월 3일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151003.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151003.png" alt=""></p>
 <h2 id="2015년-10월-3일"><a href="#2015년-10월-3일" class="headerlink" title="2015년 10월 3일"></a>2015년 10월 3일</h2><p>GAME OVER</p>
 ]]></content:encoded>
       
@@ -364,12 +364,12 @@
       <pubDate>Sat, 22 Jul 2017 03:45:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20151001.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-10월-1일&quot;&gt;&lt;a href=&quot;#2015년-10월-1일&quot; class=&quot;headerlink&quot; title=&quot;2015년 10월 1일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151001.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-10월-1일&quot;&gt;&lt;a href=&quot;#2015년-10월-1일&quot; class=&quot;headerlink&quot; title=&quot;2015년 10월 1일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20151001.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151001.png" alt=""></p>
 <h2 id="2015년-10월-1일"><a href="#2015년-10월-1일" class="headerlink" title="2015년 10월 1일"></a>2015년 10월 1일</h2><p>설명은 필요없을 것 같다.</p>
 ]]></content:encoded>
       
@@ -383,12 +383,12 @@
       <pubDate>Sat, 22 Jul 2017 03:45:55 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;img src=&quot;uploads/arts/20150929.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-9월-29일&quot;&gt;&lt;a href=&quot;#2015년-9월-29일&quot; class=&quot;headerlink&quot; title=&quot;2015년 9월 29일&quot;&gt;&lt;/
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20150929.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2015년-9월-29일&quot;&gt;&lt;a href=&quot;#2015년-9월-29일&quot; class=&quot;headerlink&quot; title=&quot;2015년 9월 29일&quot;&gt;&lt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><img src="uploads/arts/20150929.png" alt=""></p>
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20150929.png" alt=""></p>
 <h2 id="2015년-9월-29일"><a href="#2015년-9월-29일" class="headerlink" title="2015년 9월 29일"></a>2015년 9월 29일</h2><p>이것이 내가 바라던 바다.</p>
 ]]></content:encoded>
       
