@@ -147,6 +147,362 @@ ga('send', 'pageview');
         <div class="outer">
             
             <section id="main">
+    <article id="post-geumsons/geumsons-course-1" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/23/geumsons/geumsons-course-1/">비전공자를 위한 안드로이드 강의 | 1강 오리엔테이션</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/23/geumsons/geumsons-course-1/">
+            <time datetime="2017-07-23T14:20:01.000Z" itemprop="datePublished">2017-07-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>안드로이드를 배우고 싶은 일반인들을 위해 강의를 마련 해 보았습니다.<br>이 강의는 유튜브 동영상과 함께 진행됩니다!</p>
+<p>각자의 스타일에 맞게 강의를 들어주시면 됩니다.</p>
+<h2 id="강의-커리큘럼"><a href="#강의-커리큘럼" class="headerlink" title="강의 커리큘럼"></a>강의 커리큘럼</h2><p><strong>1강</strong> 오리엔테이션 : 안드로이드 프로젝트 구조 알아보기</p>
+<p><strong>2강</strong> 초간단 주사위 앱 만들기 : TextView, Button 다루기</p>
+<p><strong>3강</strong> 화면을 넘겨보자 : Intent</p>
+<p><strong>4강</strong> 리스트 만들기 : ListView</p>
+<p><strong>5강</strong> 즐겨찾기 앱 만들기</p>
+<p><strong>6강</strong> 라이브러리 활용하기</p>
+<h2 id="강의로-얻게-되는것"><a href="#강의로-얻게-되는것" class="headerlink" title="강의로 얻게 되는것"></a>강의로 얻게 되는것</h2><p>안드로이드 앱의 기본 작동 원리를 배우게 됩니다!<br>이것만으로도 충분히 앱 서비스를 만들 수 있습니다.<br>여러분의 상상력과 아이디어와 함께라면요.<br>* <strong>주의</strong> 서버(백엔드) 및 DB에 관해서는 다루지 않습니다.</p>
+<h2 id="안드로이드-스튜디오-설치하기-amp-시작하기"><a href="#안드로이드-스튜디오-설치하기-amp-시작하기" class="headerlink" title="안드로이드 스튜디오 설치하기 &amp; 시작하기"></a>안드로이드 스튜디오 설치하기 &amp; 시작하기</h2><p><a href="https://developer.android.com/studio/index.html?hl=ko" rel="external nofollow noopener noreferrer" target="_blank">https://developer.android.com/studio/index.html?hl=ko</a></p>
+<p>안드로이드 앱은 Android Studio에서 만듭니다.<br>Android Studio는 은근히 높은 사양을 요구합니다.</p>
+<h2 id="안드로이드-프로젝트의-구조"><a href="#안드로이드-프로젝트의-구조" class="headerlink" title="안드로이드 프로젝트의 구조"></a>안드로이드 프로젝트의 구조</h2><p><img src="/uploads/geumsons/geumsons_1_1.png" alt=""></p>
+<p>대강 펼쳐본 안드로이드 프로젝트의 구조입니다.<br>섹션별로 나누어서 설명하도록 하겠습니다.</p>
+<h3 id="앱-설정-관련-부분"><a href="#앱-설정-관련-부분" class="headerlink" title="앱 설정 관련 부분"></a>앱 설정 관련 부분</h3><p>앱 설정 관련 부분으로는 <code>manifests &gt; AndroidManifest.xml</code>과<br><code>Gradle Scripts &gt; build.gradle (app 수준)</code>, <code>Gradle Scripts &gt; build.gradle (프로젝트 수준)</code> 3가지 정도가 있겠습니다.<br>이 중에서 <code>Gradle Scripts &gt; build.gradle (프로젝트 수준)</code>은 자주 만지지 않습니다.</p>
+<h4 id="AndroidManifest-xml에서-할-수-있는-일"><a href="#AndroidManifest-xml에서-할-수-있는-일" class="headerlink" title="AndroidManifest.xml에서 할 수 있는 일"></a>AndroidManifest.xml에서 할 수 있는 일</h4><p>아래는 <code>AndroidManifest.xml</code>에서 할 수 있는 주요 일들을 적어놓은 것입니다.<br>더 많은 것을 할 수 있지만 이정도만 해도 충분할 것 같네요!</p>
+<blockquote>
+<p>Activity 및 Service 등록, 설정하기</p>
+</blockquote>
+<p>안드로이드에서 각 화면을 액티비티(Activity)라고 부릅니다.<br>현재 이 앱에서 사용하는 액티비티를 등록하고 설정할 수 있습니다.<br><code>AndroidManifest.xml</code>에 등록되지 않은 액티비티에 접근하려 할 경우 앱에서 오류가 발생됩니다.</p>
+<p>뿐만 아니라 앱을 시작하면 어떤 액티비티부터 실행할 것인지도 이 곳에서 설정할 수 있습니다.</p>
+<blockquote>
+<p>앱 아이콘 및 테마설정하기</p>
+</blockquote>
+<p><code>&lt;application</code> 아래에는 <code>android:icon</code>, <code>android:theme</code> 등 다양한 속성이 있는데요,<br>이를 바꿈으로서 앱 아이콘 및 테마를 바꿀 수 있습니다.</p>
+<blockquote>
+<p>앱 권한 설정하기</p>
+</blockquote>
+<p>앱을 만들때 네트워크(인터넷 연결)가 필요한 앱이라면 인터넷 접근권한,<br>카메라가 필요하다면 카메라 접근권한 등 다양한 접근 권한이 필요합니다.<br>다양한 접근 권한을 <code>AndroidManifest.xml</code>에서 설정할 수 있습니다.</p>
+<p>안드로이드 M(마시멜로우, 6.0) 버전 이상에서의 몇몇 중요 권한들은<br><code>AndroidManifest.xml</code>가아닌 Activity 코드 내에서 직접 요청해야하기도 합니다.</p>
+<h4 id="build-gradle-app-수준-에서-할-수-있는-일"><a href="#build-gradle-app-수준-에서-할-수-있는-일" class="headerlink" title="build.gradle (app 수준)에서 할 수 있는 일"></a>build.gradle (app 수준)에서 할 수 있는 일</h4><p><code>build.gradle(app 수준)</code>은 대략 아래처럼 생겼습니다.<br>여기에서 할 수 있는 일을 대략 설명해드리겠습니다.<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">apply plugin: &apos;com.android.application&apos;</div><div class="line"></div><div class="line">android &#123;</div><div class="line">    compileSdkVersion 25</div><div class="line">    buildToolsVersion &quot;25.0.2&quot;</div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.lx5475.course_1&quot;</div><div class="line">        minSdkVersion 15</div><div class="line">        targetSdkVersion 25</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line">    androidTestCompile(&apos;com.android.support.test.espresso:espresso-core:2.2.2&apos;, &#123;</div><div class="line">        exclude group: &apos;com.android.support&apos;, module: &apos;support-annotations&apos;</div><div class="line">    &#125;)</div><div class="line">    compile &apos;com.android.support:appcompat-v7:25.3.1&apos;</div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>앱 최소 OS 버전, 타겟 OS 버전 설정</p>
+<p>버전 코드와 버전 이름 설정</p>
+</blockquote>
+<p>앱을 구글 플레이에 배포시 버전코드를 차차 올려가면서 배포해야합니다.<br>예를 들어 구글 플레이에 버전코드3인 앱을 배포했다면 버전코드 1이나 2인 버전을 배포하려해도 배포되지 않습니다.</p>
+<p>따라서 버전코드 4 이상인 apk만 배포할 수 있다는 것이죠!<br>버전 이름(VersionName)은 유저나 우리가 알아볼 수 있는 것입니다. 버전 코드를 높였다고 해서 꼭 버전이름도 높일 필요는 없기도합니다. ^^</p>
+<blockquote>
+<p>proguard 설정</p>
+</blockquote>
+<p>앱의 apk를 누가 다시 해체해서(decomplie) 여러분이 작성한 코드를 볼 수도 있습니다.</p>
+<p>proguard를 설정함으로서 이를 어렵게 만들 수 있습니다.<br>그리고 이러한 설정도 <code>build.gradle</code>에서 할 수 있는 거죠.</p>
+<blockquote>
+<p>라이브러리 불러오기</p>
+</blockquote>
+<p>좋은 안드로이드 라이브러리를 발견하셨다면, 그걸 다운받아 사용하는 건 그저 <code>dependencies {}</code> 블록 안에 <code>compile &#39;com.~&#39;</code> 코드 한 줄을 적어주는 것으로 쉽게 할 수 있습니다.</p>
+<p>라이브러리를 사용하면 개발기간을 단축할 수 있습니다.<br>이름때문에 그저 “뭐지 왠 도서관..?” 이라 생각하실 수 있지만 쉽게 비유하자면 여러분이 닭 요리를 할건데 닭을 직접 잡지 않고, 마트가서 손질된 닭 고기를 사오는 것과 비슷합니다. 한마디로 겁나 좋은거죠 ^-^</p>
+<h3 id="디자인-관련-부분"><a href="#디자인-관련-부분" class="headerlink" title="디자인 관련 부분"></a>디자인 관련 부분</h3><p>디자인 관련 부분은 <code>res</code> 폴더 전부인데요, 각 폴더별로 설명을 드리도록 하겠습니다.</p>
+<h4 id="res-gt-drawable"><a href="#res-gt-drawable" class="headerlink" title="res &gt; drawable"></a>res &gt; drawable</h4><p>각종 이미지 에셋을 여기에 두고 사용하시면 됩니다.<br>예를들어 별 모양 이미지 파일인 <code>star.png</code>을 여기에 넣으면,<br><code>xml</code>에서 사용할때는 <code>android:src=&quot;@drawable/star.png&quot;</code><br><code>java</code> 코드에서 사용할 때는 <code>R.drawable.star</code>.<br>뭐 이런식으로 사용할 수 있게 되는 겁니다!</p>
+<p>꼭 <code>png</code>등 이미지 파일이 아니라 스타일을 정의한 <code>xml</code> 파일도 넣기도 합니다.</p>
+<h4 id="res-gt-layout"><a href="#res-gt-layout" class="headerlink" title="res &gt; layout"></a>res &gt; layout</h4><p>말 그대로 레이아웃 <code>xml</code> 파일들이 여기에 들어갑니다.<br>한 화면을 통째로 디자인해서 넣기도 하지만, 복잡한 디자인의 앱의 경우에는<br>채팅창 말풍선 레이아웃 따로, 채팅창 상단 바 따로, 입력창 따로 만들어 놓고 코드 상에서 동적으로 합치고들합니다.</p>
+<h4 id="res-gt-values-gt-colors-xml"><a href="#res-gt-values-gt-colors-xml" class="headerlink" title="res &gt; values &gt; colors.xml"></a>res &gt; values &gt; colors.xml</h4><p>앱에서 자주쓰이는 색상들을 정리해놓는 곳입니다.<br>HEX 코드로 <code>#90f2da</code>라는 색상이있다면 기억하기 어려우니 <code>colors.xml</code>에서<br><code>&lt;color name=&quot;mint&quot;&gt;#90f2da&lt;/color&gt;</code> 해놓고 <code>R.color.mint</code>로 편하게 쓰는 것이죠!</p>
+<h4 id="res-gt-values-gt-strings-xml"><a href="#res-gt-values-gt-strings-xml" class="headerlink" title="res &gt; values &gt; strings.xml"></a>res &gt; values &gt; strings.xml</h4><p>앱의 문자리소스를 다루는 곳입니다.<br>앱의 인터페이스에는 다양한 문자들이 있죠. 예를들면 ‘확인’, ‘취소’ 같은 게 있겠습니다.</p>
+<p>이를 일일이 하드코딩하는 것보다 <code>strings.xml</code>에 저장해두고 쓰는 것이 매우 매우 좋습니다.<br>언어별로 <code>strings.xml</code> 파일을 만들 수 있기 때문에 영어권에서는 ‘확인’을 ‘OK’로 한다던지하는 작업을 손쉽게 할 수 있습니다.<br>앱 이름도 여기에서 바꿀 수 있죠!</p>
+<h3 id="프로그래밍-관련-부분"><a href="#프로그래밍-관련-부분" class="headerlink" title="프로그래밍 관련 부분"></a>프로그래밍 관련 부분</h3><h4 id="패키지네임-gt-MainActivity-java가-존재하는-폴더"><a href="#패키지네임-gt-MainActivity-java가-존재하는-폴더" class="headerlink" title="패키지네임 &gt; MainActivity.java가 존재하는 폴더!"></a>패키지네임 &gt; MainActivity.java가 존재하는 폴더!</h4><p><code>MainActivity.java</code>라던지하는 파일들도 만들 수 있고,<br><code>class</code>도 만들고 <code>interface</code>, <code>enum</code>도 만들고…<br>java 프로그래밍에 필요한 모든 것을 생성하고 사용할 수 있습니다.</p>
+<p>프로그래밍에 관련된 모든 부분이라 할 수 있겠네요.</p>
+
+            <div class="article-tags">
+              
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/비전공자/">비전공자</a>, <a class="tag-link" href="/tags/안드로이드/">안드로이드</a>, <a class="tag-link" href="/tags/안드로이드-강의/">안드로이드 강의</a>, <a class="tag-link" href="/tags/안드로이드-강좌/">안드로이드 강좌</a>
+    </div>
+
+              <br><br>
+            </div>
+            
+        
+        </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5gwtytg0000qzvayp9zrqbu" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/">댓글</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-geumsons/geumsons-course-2" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/23/geumsons/geumsons-course-2/">비전공자를 위한 안드로이드 강의 | 2강 주사위 앱을 만들자!</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/23/geumsons/geumsons-course-2/">
+            <time datetime="2017-07-23T14:12:01.000Z" itemprop="datePublished">2017-07-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>오늘은 주사위 앱을 만들면서 버튼 클릭 액션을 배워보겠습니다.</p>
+<p><img src="/uploads/geumsons/guemson_2_0.png" alt=""></p>
+<p>버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다.</p>
+<h2 id="프로젝트-만들기"><a href="#프로젝트-만들기" class="headerlink" title="프로젝트 만들기"></a>프로젝트 만들기</h2><p>안드로이드 스튜디오에서 <code>File &gt; New &gt; New projects</code>를 눌러 프로젝트를 만듭니다.<br>Application Name은 영어 대소문자로 자유롭게 해 주세요. (예: DiceApplication)<br>그대로 <code>Next &gt; Next &gt; Finish</code>를 해서 프로젝트를 만들어줍니다.</p>
+<h2 id="UI-구성하기"><a href="#UI-구성하기" class="headerlink" title="UI 구성하기"></a>UI 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><img src="/uploads/geumsons/guemson_2_2.png" alt=""><br><code>res &gt; layout &gt; activity_main.xml</code>을 수정 해 봅시다.<br>위와 같은 화면으로 만들 것입니다.</p>
+<blockquote>
+<p>안드로이드에서 UI를 만들때는 <code>res &gt; layout</code> 안에 만들어주면 됩니다.</p>
+</blockquote>
+<p><img src="/uploads/geumsons/guemson_2_1.png" alt=""></p>
+<p>TextView 하나와 Button 하나를 자유롭게 배치 해 주시고,<br>각각 뷰에 id를 적어줍니다.</p>
+<p>id는 그 뷰를 식별하기 위한 고유값입니다.<br>예제에서 TextView에는 <code>tv_result</code>, Button에는 <code>btn_roll</code>이라고 id를 붙여주었는데요,<br>이렇게 규칙적이고 통일성있는 이름을 지어주시면 더 좋습니다.</p>
+<p>아래는 예제 코드입니다.<br>여러가지 만져보시면서 각각 속성들이 어떻게 돌아가는지 살펴보세요.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.lx5475.course_1.MainActivity"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tv_result"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Roll the Dice!"</span></div><div class="line">            <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_centerInParent</span>=<span class="string">"false"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"36sp"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Roll"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/btn_roll"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="프로그래밍-하기"><a href="#프로그래밍-하기" class="headerlink" title="프로그래밍 하기"></a>프로그래밍 하기</h2><h3 id="MainActivity-java"><a href="#MainActivity-java" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h3><p><code>&lt;패키지 네임&gt; &gt; MainActivity.java</code> 파일을 열어봅시다.<br>아마도 대략 아래와 같은 상태일 것입니다.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lx5475.course_1;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>setContentView(R.layout.activity_main);</code>에서 이 액티비티가 우리가 방금 만든<br><code>activity_main.xml</code>의 화면을 보여주고 있다는 것을 알 수 있습니다.</p>
+<p><code>onCreate()</code>는 화면이 생성될때 자동으로 실행되는 함수입니다.<br>거의 main함수라고 보시면 될 것 같네요. 이 블록 안에다가 코드를 적어주도록 하겠습니다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lx5475.course_1;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView tv_result;</div><div class="line">    <span class="keyword">private</span> Button btn_button;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        init();</div><div class="line"></div><div class="line">        btn_button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="comment">// 1~6 까지 랜덤 숫자를 얻는다.</span></div><div class="line">                Random dice = <span class="keyword">new</span> Random();</div><div class="line">                <span class="keyword">int</span> result = dice.nextInt(<span class="number">6</span>) + <span class="number">1</span>;</div><div class="line">                <span class="comment">// TextView에 표시한다.</span></div><div class="line">                tv_result.setText(String.valueOf(result));</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        tv_result = (TextView) findViewById(R.id.tv_result);</div><div class="line">        btn_button = (Button) findViewById(R.id.btn_roll);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>여기서 외울 코드가 너무 많아서 혼란스러우실 수 있습니다.<br>하지만 여러분은 코드를 외우는게 아니라, 어떤 메소드가 어떤 역할을 하는지만 알고 있으면 됩니다.<br>즉 아래와 같은 사실만 기억하면 된다는 겁니다!</p>
+<blockquote>
+<p>1) “아, 버튼을 클릭하는 액션을 정의하려면 <code>OnClickListener</code>가 필요하구나!”</p>
+<p>2) “xml에 정의한 뷰를 불러오려면 <code>findViewById()</code>를 사용하는구나~”</p>
+<p>3) “TextView의 글자를 바꾸려면 <code>setText()</code>를 사용하는구나!”</p>
+</blockquote>
+<p>간단하죠?<br>이 코드를 눈감고 못 쓰신다고 해서 코딩을 못하는게 아니라는 겁니다!<br>저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다.</p>
+<h2 id="오늘-배운걸로-해볼-수-있는-것들"><a href="#오늘-배운걸로-해볼-수-있는-것들" class="headerlink" title="오늘 배운걸로 해볼 수 있는 것들"></a>오늘 배운걸로 해볼 수 있는 것들</h2><p>오늘 배운 OnClickListener를 이용해서 아래와 같은 것도 시도 해 보세요.<br>여러분의 상상력을 동원해서 에러와 맞서싸우며 앱을 가지고 놀아보세요!</p>
+<blockquote>
+<p>1) 버튼을 클릭하면 텍스트 뷰에 있는 값을 Log 또는 Toast 메세지로 출력하기</p>
+<p>2) 버튼을 클릭하면 텍스트 뷰의 글자 크기가 커지도록 하기</p>
+<p>3) 텍스트 뷰 안에있는 값을 계속 바뀌도록 하다가 버튼을 클릭하면 멈추게 하기</p>
+</blockquote>
+
+            <div class="article-tags">
+              
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/버튼-클릭/">버튼 클릭</a>, <a class="tag-link" href="/tags/비전공자/">비전공자</a>, <a class="tag-link" href="/tags/안드로이드/">안드로이드</a>, <a class="tag-link" href="/tags/안드로이드-강의/">안드로이드 강의</a>, <a class="tag-link" href="/tags/안드로이드-강좌/">안드로이드 강좌</a>, <a class="tag-link" href="/tags/주사위/">주사위</a>
+    </div>
+
+              <br><br>
+            </div>
+            
+        
+        </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5gwutco0000rjva0uum70nz" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/">댓글</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-arts/arts-by-me-34" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -204,7 +560,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5gspehl0083w6vad5311kmk" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5gwnsha006foovah5e6hiq5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -282,139 +638,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-arts/arts-by-me-32" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/arts/arts-by-me-32/">D-2</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/arts/arts-by-me-32/">
-            <time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><img src="/uploads/arts/20160708_2.png" alt=""></p>
-<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>궁금증을 자극하는 그림.</p>
-
-            <div class="article-tags">
-              
-              <br><br>
-            </div>
-            
-        
-        </div>
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5gspehg007xw6val4qqqqvt" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/">댓글</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-arts/arts-by-me-33" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -470,7 +693,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5gspehp0089w6vamk2428xe" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5gwnsh8006doovaqrpuxx83" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -548,6 +771,139 @@ ga('send', 'pageview');
 
 
 
+    <article id="post-arts/arts-by-me-32" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/22/arts/arts-by-me-32/">D-2</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/22/arts/arts-by-me-32/">
+            <time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="/uploads/arts/20160708_2.png" alt=""></p>
+<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>궁금증을 자극하는 그림.</p>
+
+            <div class="article-tags">
+              
+              <br><br>
+            </div>
+            
+        
+        </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5gwnsh5006boovalrsgqoni" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/">댓글</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-arts/arts-by-me-31" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -603,7 +959,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5gspehm0085w6vafqtn685n" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5gwnsh40069oovajh9d8zsg" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -736,7 +1092,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5gspehf007vw6vargmtd0ko" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5gwnsh20067oovaevfd3gh1" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -869,7 +1225,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5gspehb007rw6vaduzrj7y2" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5gwnsgu0063oova914fvt5n" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1002,7 +1358,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-28/" data-id="cj5gspeh9007pw6vapnnt9adn" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-28/" data-id="cj5gwnsgt0061oovavqa646z6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1135,7 +1491,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/" data-id="cj5gspehk0081w6vage5xnvxj" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/" data-id="cj5gwnsgq005zoovaqr4u01xt" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1213,272 +1569,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-arts/arts-by-me-25" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/arts/arts-by-me-25/">Android 앱 UI 디자인</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/arts/arts-by-me-25/">
-            <time datetime="2017-07-22T05:57:55.000Z" itemprop="datePublished">2017-07-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><img src="/uploads/arts/20160112.png" alt=""></p>
-<h2 id="2016년-1월-12일"><a href="#2016년-1월-12일" class="headerlink" title="2016년 1월 12일"></a>2016년 1월 12일</h2><p>디자인 자판기 시리즈 2탄.</p>
-
-            <div class="article-tags">
-              
-              <br><br>
-            </div>
-            
-        
-        </div>
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-25/" data-id="cj5gspehi007zw6va1lobfp6z" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://lx5475.github.io/2017/07/22/arts/arts-by-me-25/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-25/">댓글</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-arts/arts-by-me-24" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/arts/arts-by-me-24/">거미줄</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/arts/arts-by-me-24/">
-            <time datetime="2017-07-22T05:55:55.000Z" itemprop="datePublished">2017-07-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><img src="/uploads/arts/20160111.png" alt=""></p>
-<h2 id="2016년-1월-11일"><a href="#2016년-1월-11일" class="headerlink" title="2016년 1월 11일"></a>2016년 1월 11일</h2><p>신경쓰지 않으면 생기다가도 신경쓰지 않으면 거미줄이 있는지 조차 보이지 않는다.<br>거미줄을 보면서 거미줄은 참 모순적인 존재라고 생각했다.</p>
-
-            <div class="article-tags">
-              
-              <br><br>
-            </div>
-            
-        
-        </div>
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-24/" data-id="cj5gspeh4007lw6vakk7kq56i" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://lx5475.github.io/2017/07/22/arts/arts-by-me-24/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-24/">댓글</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">다음 &raquo;</a>
     </nav>
@@ -1491,7 +1581,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">카테고리</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arts-By-Me/">Arts By Me</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arts-By-Me/">Arts By Me</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -1501,6 +1591,44 @@ ga('send', 'pageview');
         <h3 class="widget-title">최근 글</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/23/geumsons/geumsons-course-1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a></p>
+                            <p class="item-title"><a href="/2017/07/23/geumsons/geumsons-course-1/" class="title">비전공자를 위한 안드로이드 강의 | 1강 오리엔테이션</a></p>
+                            <p class="item-date"><time datetime="2017-07-23T14:20:01.000Z" itemprop="datePublished">2017-07-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/23/geumsons/geumsons-course-2/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a></p>
+                            <p class="item-title"><a href="/2017/07/23/geumsons/geumsons-course-2/" class="title">비전공자를 위한 안드로이드 강의 | 2강 주사위 앱을 만들자!</a></p>
+                            <p class="item-date"><time datetime="2017-07-23T14:12:01.000Z" itemprop="datePublished">2017-07-23</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1518,25 +1646,6 @@ ga('send', 'pageview');
                             <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
                             <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-34/" class="title">한 포크 새우 그림</a></p>
                             <p class="item-date"><time datetime="2017-07-22T06:09:55.000Z" itemprop="datePublished">2017-07-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/07/22/arts/arts-by-me-32/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
-                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-32/" class="title">D-2</a></p>
-                            <p class="item-date"><time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time></p>
                         </div>
                     </li>
                 
@@ -1562,7 +1671,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/07/22/arts/arts-by-me-31/" class="thumbnail">
+                            <a href="/2017/07/22/arts/arts-by-me-32/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1573,27 +1682,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
-                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-31/" class="title">Truly Madly Deeply</a></p>
-                            <p class="item-date"><time datetime="2017-07-22T06:06:55.000Z" itemprop="datePublished">2017-07-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/07/22/arts/arts-by-me-30/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
-                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-30/" class="title">진과스</a></p>
-                            <p class="item-date"><time datetime="2017-07-22T06:04:55.000Z" itemprop="datePublished">2017-07-22</time></p>
+                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-32/" class="title">D-2</a></p>
+                            <p class="item-date"><time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time></p>
                         </div>
                     </li>
                 
@@ -1606,7 +1696,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1615,7 +1705,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">태그 클라우드</h3>
         <div class="widget tagcloud">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 16.67px;">Android</a> <a href="/tags/Bundle/" style="font-size: 10px;">Bundle</a> <a href="/tags/Custom/" style="font-size: 10px;">Custom</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Intent/" style="font-size: 10px;">Intent</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Parcel/" style="font-size: 10px;">Parcel</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Serializable/" style="font-size: 10px;">Serializable</a> <a href="/tags/Shortcut/" style="font-size: 10px;">Shortcut</a> <a href="/tags/activity/" style="font-size: 10px;">activity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/intent/" style="font-size: 10px;">intent</a> <a href="/tags/intro/" style="font-size: 10px;">intro</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/parcelable/" style="font-size: 10px;">parcelable</a> <a href="/tags/splash/" style="font-size: 10px;">splash</a> <a href="/tags/static-redirect/" style="font-size: 10px;">static redirect</a> <a href="/tags/강의/" style="font-size: 10px;">강의</a> <a href="/tags/개발/" style="font-size: 10px;">개발</a> <a href="/tags/개발자/" style="font-size: 13.33px;">개발자</a> <a href="/tags/넘기기/" style="font-size: 10px;">넘기기</a> <a href="/tags/대만/" style="font-size: 16.67px;">대만</a> <a href="/tags/만드는법/" style="font-size: 10px;">만드는법</a> <a href="/tags/만들기/" style="font-size: 10px;">만들기</a> <a href="/tags/바로가기/" style="font-size: 10px;">바로가기</a> <a href="/tags/바탕화면/" style="font-size: 10px;">바탕화면</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/백엔드/" style="font-size: 10px;">백엔드</a> <a href="/tags/버튼/" style="font-size: 10px;">버튼</a> <a href="/tags/생성/" style="font-size: 10px;">생성</a> <a href="/tags/서버/" style="font-size: 10px;">서버</a> <a href="/tags/스플래시/" style="font-size: 10px;">스플래시</a> <a href="/tags/아이콘/" style="font-size: 10px;">아이콘</a> <a href="/tags/안드로이드/" style="font-size: 20px;">안드로이드</a> <a href="/tags/액티비티-전환/" style="font-size: 10px;">액티비티 전환</a> <a href="/tags/앱/" style="font-size: 13.33px;">앱</a> <a href="/tags/앱-개발/" style="font-size: 13.33px;">앱 개발</a> <a href="/tags/앱개발/" style="font-size: 13.33px;">앱개발</a> <a href="/tags/어플/" style="font-size: 13.33px;">어플</a> <a href="/tags/오브젝트/" style="font-size: 10px;">오브젝트</a> <a href="/tags/용산사/" style="font-size: 16.67px;">용산사</a> <a href="/tags/이벤트/" style="font-size: 10px;">이벤트</a> <a href="/tags/인텐트/" style="font-size: 10px;">인텐트</a> <a href="/tags/인트로/" style="font-size: 10px;">인트로</a> <a href="/tags/점괘/" style="font-size: 16.67px;">점괘</a> <a href="/tags/정보-전송/" style="font-size: 13.33px;">정보 전송</a> <a href="/tags/처리/" style="font-size: 10px;">처리</a> <a href="/tags/클릭/" style="font-size: 10px;">클릭</a> <a href="/tags/타이페이/" style="font-size: 16.67px;">타이페이</a> <a href="/tags/통신/" style="font-size: 13.33px;">통신</a> <a href="/tags/프래그먼트/" style="font-size: 10px;">프래그먼트</a> <a href="/tags/하는-방법/" style="font-size: 10px;">하는 방법</a> <a href="/tags/한글/" style="font-size: 10px;">한글</a> <a href="/tags/한글깨짐/" style="font-size: 10px;">한글깨짐</a> <a href="/tags/해석/" style="font-size: 16.67px;">해석</a> <a href="/tags/화면-전환/" style="font-size: 10px;">화면 전환</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 16.67px;">Android</a> <a href="/tags/Bundle/" style="font-size: 10px;">Bundle</a> <a href="/tags/Custom/" style="font-size: 10px;">Custom</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Intent/" style="font-size: 10px;">Intent</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Parcel/" style="font-size: 10px;">Parcel</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Serializable/" style="font-size: 10px;">Serializable</a> <a href="/tags/Shortcut/" style="font-size: 10px;">Shortcut</a> <a href="/tags/activity/" style="font-size: 10px;">activity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/intent/" style="font-size: 10px;">intent</a> <a href="/tags/intro/" style="font-size: 10px;">intro</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/parcelable/" style="font-size: 10px;">parcelable</a> <a href="/tags/splash/" style="font-size: 10px;">splash</a> <a href="/tags/static-redirect/" style="font-size: 10px;">static redirect</a> <a href="/tags/강의/" style="font-size: 10px;">강의</a> <a href="/tags/개발/" style="font-size: 10px;">개발</a> <a href="/tags/개발자/" style="font-size: 13.33px;">개발자</a> <a href="/tags/넘기기/" style="font-size: 10px;">넘기기</a> <a href="/tags/대만/" style="font-size: 16.67px;">대만</a> <a href="/tags/만드는법/" style="font-size: 10px;">만드는법</a> <a href="/tags/만들기/" style="font-size: 10px;">만들기</a> <a href="/tags/바로가기/" style="font-size: 10px;">바로가기</a> <a href="/tags/바탕화면/" style="font-size: 10px;">바탕화면</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/백엔드/" style="font-size: 10px;">백엔드</a> <a href="/tags/버튼/" style="font-size: 10px;">버튼</a> <a href="/tags/버튼-클릭/" style="font-size: 10px;">버튼 클릭</a> <a href="/tags/비전공자/" style="font-size: 13.33px;">비전공자</a> <a href="/tags/생성/" style="font-size: 10px;">생성</a> <a href="/tags/서버/" style="font-size: 10px;">서버</a> <a href="/tags/스플래시/" style="font-size: 10px;">스플래시</a> <a href="/tags/아이콘/" style="font-size: 10px;">아이콘</a> <a href="/tags/안드로이드/" style="font-size: 20px;">안드로이드</a> <a href="/tags/안드로이드-강의/" style="font-size: 13.33px;">안드로이드 강의</a> <a href="/tags/안드로이드-강좌/" style="font-size: 13.33px;">안드로이드 강좌</a> <a href="/tags/액티비티-전환/" style="font-size: 10px;">액티비티 전환</a> <a href="/tags/앱/" style="font-size: 13.33px;">앱</a> <a href="/tags/앱-개발/" style="font-size: 13.33px;">앱 개발</a> <a href="/tags/앱개발/" style="font-size: 13.33px;">앱개발</a> <a href="/tags/어플/" style="font-size: 13.33px;">어플</a> <a href="/tags/오브젝트/" style="font-size: 10px;">오브젝트</a> <a href="/tags/용산사/" style="font-size: 16.67px;">용산사</a> <a href="/tags/이벤트/" style="font-size: 10px;">이벤트</a> <a href="/tags/인텐트/" style="font-size: 10px;">인텐트</a> <a href="/tags/인트로/" style="font-size: 10px;">인트로</a> <a href="/tags/점괘/" style="font-size: 16.67px;">점괘</a> <a href="/tags/정보-전송/" style="font-size: 13.33px;">정보 전송</a> <a href="/tags/주사위/" style="font-size: 10px;">주사위</a> <a href="/tags/처리/" style="font-size: 10px;">처리</a> <a href="/tags/클릭/" style="font-size: 10px;">클릭</a> <a href="/tags/타이페이/" style="font-size: 16.67px;">타이페이</a> <a href="/tags/통신/" style="font-size: 13.33px;">통신</a> <a href="/tags/프래그먼트/" style="font-size: 10px;">프래그먼트</a> <a href="/tags/하는-방법/" style="font-size: 10px;">하는 방법</a> <a href="/tags/한글/" style="font-size: 10px;">한글</a> <a href="/tags/한글깨짐/" style="font-size: 10px;">한글깨짐</a> <a href="/tags/해석/" style="font-size: 16.67px;">해석</a> <a href="/tags/화면-전환/" style="font-size: 10px;">화면 전환</a>
         </div>
     </div>
 

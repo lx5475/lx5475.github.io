@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/</loc>
+        <lastmod>2017-07-23T16:01:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/</loc>
+        <lastmod>2017-07-23T16:00:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://lx5475.github.io/2016/07/28/android-fragment/</loc>
+        <lastmod>2017-07-23T15:59:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/</loc>
         <lastmod>2017-07-23T14:04:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -271,7 +295,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2017/07/19/longshan-81-100/</loc>
+        <loc>http://lx5475.github.io/2017/07/19/longshan/longshan-81-100/</loc>
         <lastmod>2017-07-19T03:27:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -287,7 +311,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2017/07/19/longshan-61-80/</loc>
+        <loc>http://lx5475.github.io/2017/07/19/longshan/longshan-61-80/</loc>
         <lastmod>2017-07-19T03:01:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -295,7 +319,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2017/07/18/longshan-1-20/</loc>
+        <loc>http://lx5475.github.io/2017/07/18/longshan/longshan-1-20/</loc>
         <lastmod>2017-07-18T13:05:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -303,7 +327,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2017/07/18/longshan-21-40/</loc>
+        <loc>http://lx5475.github.io/2017/07/18/longshan/longshan-21-40/</loc>
         <lastmod>2017-07-18T13:05:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -311,7 +335,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2017/07/18/longshan-41-60/</loc>
+        <loc>http://lx5475.github.io/2017/07/18/longshan/longshan-41-60/</loc>
         <lastmod>2017-07-18T13:05:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -335,23 +359,7 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2016/07/28/android-fragment/</loc>
-        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://lx5475.github.io/2016/07/08/android-php-korean/</loc>
-        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://lx5475.github.io/2016/06/27/android-parcelable/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -368,6 +376,14 @@
 
     <url>
         <loc>http://lx5475.github.io/2016/03/29/android-shortcut/</loc>
+        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://lx5475.github.io/2016/06/27/android-parcelable/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
