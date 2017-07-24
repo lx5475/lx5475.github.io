@@ -258,7 +258,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5gxg9af006uyzva85413q7o" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5hma6yf006t3uvakc9gqb9q" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -374,13 +374,16 @@ ga('send', 'pageview');
         
             
             <p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>오늘은 주사위 앱을 만들면서 버튼 클릭 액션을 배워보겠습니다.</p>
-<p><img src="/uploads/geumsons/guemson_2_0.png" alt=""></p>
-<h2 id="버튼을-클릭하면-1-6-사이의-숫자가-랜덤하게-표시되는-앱입니다"><a href="#버튼을-클릭하면-1-6-사이의-숫자가-랜덤하게-표시되는-앱입니다" class="headerlink" title="버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다."></a>버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다.</h2><h2 id="프로젝트-만들기"><a href="#프로젝트-만들기" class="headerlink" title="프로젝트 만들기"></a>프로젝트 만들기</h2><p>안드로이드 스튜디오에서 <code>File &gt; New &gt; New projects</code>를 눌러 프로젝트를 만듭니다.<br>Application Name은 영어 대소문자로 자유롭게 해 주세요. (예: DiceApplication)</p>
-<h2 id="그대로-Next-gt-Next-gt-Finish를-해서-프로젝트를-만들어줍니다"><a href="#그대로-Next-gt-Next-gt-Finish를-해서-프로젝트를-만들어줍니다" class="headerlink" title="그대로 Next &gt; Next &gt; Finish를 해서 프로젝트를 만들어줍니다."></a>그대로 <code>Next &gt; Next &gt; Finish</code>를 해서 프로젝트를 만들어줍니다.</h2><h2 id="UI-구성하기"><a href="#UI-구성하기" class="headerlink" title="UI 구성하기"></a>UI 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><img src="/uploads/geumsons/guemson_2_2.png" alt=""><br><code>res &gt; layout &gt; activity_main.xml</code>을 수정 해 봅시다.<br>위와 같은 화면으로 만들 것입니다.</p>
+<p><img src="/uploads/geumsons/geumson_2_0.png" alt=""></p>
+<p>버튼을 클릭하면 1~6 사이의 숫자가 랜덤하게 표시되는 앱입니다.</p>
+<hr>
+<h2 id="프로젝트-만들기"><a href="#프로젝트-만들기" class="headerlink" title="프로젝트 만들기"></a>프로젝트 만들기</h2><p>안드로이드 스튜디오에서 <code>File &gt; New &gt; New projects</code>를 눌러 프로젝트를 만듭니다.<br>Application Name은 영어 대소문자로 자유롭게 해 주세요. (예: DiceApplication)<br>그대로 <code>Next &gt; Next &gt; Finish</code>를 해서 프로젝트를 만들어줍니다.</p>
+<hr>
+<h2 id="UI-구성하기"><a href="#UI-구성하기" class="headerlink" title="UI 구성하기"></a>UI 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><img src="/uploads/geumsons/geumson_2_2.png" alt=""><br><code>res &gt; layout &gt; activity_main.xml</code>을 수정 해 봅시다.<br>위와 같은 화면으로 만들 것입니다.</p>
 <blockquote>
 <p>안드로이드에서 UI를 만들때는 <code>res &gt; layout</code> 안에 만들어주면 됩니다.</p>
 </blockquote>
-<p><img src="/uploads/geumsons/guemson_2_1.png" alt=""></p>
+<p><img src="/uploads/geumsons/geumson_2_1.png" alt=""></p>
 <p>TextView 하나와 Button 하나를 자유롭게 배치 해 주시고,<br>각각 뷰에 id를 적어줍니다.</p>
 <p>id는 그 뷰를 식별하기 위한 고유값입니다.<br>예제에서 TextView에는 <code>tv_result</code>, Button에는 <code>btn_roll</code>이라고 id를 붙여주었는데요,<br>이렇게 규칙적이고 통일성있는 이름을 지어주시면 더 좋습니다.</p>
 <p>아래는 예제 코드입니다.<br>여러가지 만져보시면서 각각 속성들이 어떻게 돌아가는지 살펴보세요.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.lx5475.course_1.MainActivity"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tv_result"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Roll the Dice!"</span></div><div class="line">            <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_centerInParent</span>=<span class="string">"false"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"36sp"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Roll"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/btn_roll"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -423,7 +426,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5gxg9ak006wyzvaybvebe91" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5hma6yi006v3uvau9fgrnsv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -558,7 +561,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5gxg9a6006gyzvawk0oyrp8" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5hma6y5006f3uvalan0pkkq" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -691,7 +694,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5gxg9a4006eyzvai0uhf5ww" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5hma6y3006d3uvagou01ar7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -824,7 +827,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5gxg99y006ayzva7u3mcmv9" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5hma6y0006b3uvavhrv2krg" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -957,7 +960,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5gxg99o0068yzva2fzddxpv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5hma6xv00693uvav7ussj3n" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1090,7 +1093,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5gxg9a2006cyzvaveqnz3tv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5hma6xs00673uvarfiq8f7n" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1223,7 +1226,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5gxg99g0064yzvax3ns0shl" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5hma6xk00633uva3k8r1cxl" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1356,7 +1359,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-28/" data-id="cj5gxg99f0062yzvall8sexbi" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-28/" data-id="cj5hma6xj00613uvaoubk2ff6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1489,7 +1492,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/" data-id="cj5gxg99e0060yzva5qpyc6h8" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/" data-id="cj5hma6xi005z3uvae4vvvz7s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
