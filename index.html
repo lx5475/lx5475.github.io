@@ -147,6 +147,158 @@ ga('send', 'pageview');
         <div class="outer">
             
             <section id="main">
+    <article id="post-algorithm/algorithm-bianry-search-tree" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/24/algorithm/algorithm-bianry-search-tree/">\[C++\] 이진 탐색 트리 구현하기 (Binary Search Tree)</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/24/algorithm/algorithm-bianry-search-tree/">
+            <time datetime="2017-07-24T04:26:42.000Z" itemprop="datePublished">2017-07-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="이진-탐색-트리-Binary-Search-Tree"><a href="#이진-탐색-트리-Binary-Search-Tree" class="headerlink" title="이진 탐색 트리 (Binary Search Tree)"></a>이진 탐색 트리 (Binary Search Tree)</h2><p>이진 탐색트리는 데이터의 크기에 따라 노드의 위치가 다르다.<br>정의는 아래와 같다.</p>
+<blockquote>
+<p>(1) 모든 원소는 서로 다른 유일한 키를 갖는다.<br><br>(2) 왼쪽 서브 트리에 있는 원소의 키는 그 루트의 키보다 작다.<br><br>(3) 오른쪽 서브 트리에 있는 원소의 키는 그 루트의 키보다 크다.<br><br>(4) 왼쪽 서브트리와 오른쪽 서브트리도 이진 탐색 트리이다.<br></p>
+</blockquote>
+<h2 id="이진-탐색-트리-C-구현"><a href="#이진-탐색-트리-C-구현" class="headerlink" title="이진 탐색 트리 C++ 구현"></a>이진 탐색 트리 C++ 구현</h2><p>이제 이진 탐색트리를 구현할텐데,</p>
+<ul>
+<li>탐색(search)</li>
+<li>삽입(insert)</li>
+</ul>
+<p>두 가지 기능을 수행하도록 할 것이다.<br>구현해볼 이진 탐색트리는 아래와 같이 생겼다.<br>주황색 표시된 부분은 새로 추가해볼 노드다.</p>
+<p><img src="/uploads/bst_sample.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> null 0</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span>;</span></div><div class="line"></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> &#123;</span></div><div class="line">    <span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">Tree</span>&lt;T&gt;;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    T data;</div><div class="line">    TreeNode* left;</div><div class="line">    TreeNode* right;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    TreeNode(T data = <span class="number">0</span>, TreeNode* left = null, TreeNode* right = null) &#123;</div><div class="line">        <span class="keyword">this</span>-&gt;data = data;</div><div class="line">        <span class="keyword">this</span>-&gt;left = left;</div><div class="line">        <span class="keyword">this</span>-&gt;right = right;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> TreeNode&lt;T&gt;&amp; node) &#123;</div><div class="line">        os &lt;&lt; <span class="string">"[data] "</span> &lt;&lt; node.data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">if</span> (node.left != null) &#123;</div><div class="line">            os &lt;&lt; <span class="string">"[left] "</span> &lt;&lt; node.left-&gt;data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (node.right != null) &#123;</div><div class="line">            os &lt;&lt; <span class="string">"[right] "</span> &lt;&lt; node.right-&gt;data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> os;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span> &#123;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    TreeNode&lt;T&gt;* root;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Tree(T data = <span class="number">0</span>) &#123;</div><div class="line">        root = <span class="keyword">new</span> TreeNode&lt;T&gt;(data);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// Tree 만들기</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buildSearchTree</span><span class="params">()</span> </span>&#123;</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">3</span>));</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">10</span>));</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">14</span>));</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">2</span>));</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">5</span>));</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">11</span>));</div><div class="line">        insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">16</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insertNode</span><span class="params">(TreeNode&lt;T&gt;* node)</span> </span>&#123;</div><div class="line">        <span class="comment">// 중복이 없을 때</span></div><div class="line">        <span class="keyword">if</span> (search(root, node-&gt;data) == null) &#123;</div><div class="line">            TreeNode&lt;T&gt;* parent = null;</div><div class="line">            TreeNode&lt;T&gt;* current = root;</div><div class="line">            <span class="comment">// 작으면 왼쪽, 크면 오른쪽으로 이동,</span></div><div class="line">            <span class="comment">// 새 노드의 부모가 정해짐</span></div><div class="line">            <span class="keyword">while</span> (current != null) &#123;</div><div class="line">                parent = current;</div><div class="line">                <span class="keyword">if</span> (node-&gt;data &lt; parent-&gt;data) &#123;</div><div class="line">                    current = current-&gt;left;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    current = current-&gt;right;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (node-&gt;data &lt; parent-&gt;data) &#123;</div><div class="line">                parent-&gt;left = node;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                parent-&gt;right = node;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Inserted "</span> &lt;&lt; node-&gt;data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    TreeNode&lt;T&gt;* getRoot() &#123;</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode&lt;T&gt;* current)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (current != null) &#123;</div><div class="line">            visit(current);</div><div class="line">            preorder(current-&gt;left);</div><div class="line">            preorder(current-&gt;right);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(TreeNode&lt;T&gt;* current)</span> </span>&#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; current-&gt;data &lt;&lt; <span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    TreeNode&lt;T&gt;* search(TreeNode&lt;T&gt;* current, T data) &#123;</div><div class="line">        <span class="keyword">if</span> (current == null) <span class="keyword">return</span> null;</div><div class="line">        <span class="keyword">if</span> (data == current-&gt;data) &#123;</div><div class="line">            <span class="keyword">return</span> current;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (data &lt; current-&gt;data) &#123;</div><div class="line">            search(current-&gt;left, data);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            search(current-&gt;right, data);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    Tree&lt;<span class="keyword">int</span>&gt; tree(<span class="number">8</span>);</div><div class="line">    tree.buildSearchTree();</div><div class="line">    <span class="comment">// 만들어진 Tree 출력하기</span></div><div class="line">    <span class="comment">// 8 3 2 5 10 14 11 16</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Preorder &gt;&gt; "</span>;</div><div class="line">    tree.preorder(tree.getRoot());</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Tree에 4 넣고, 확인</span></div><div class="line">    tree.insertNode(<span class="keyword">new</span> TreeNode&lt;<span class="keyword">int</span>&gt;(<span class="number">4</span>));</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Preorder &gt;&gt; "</span>;</div><div class="line">    tree.preorder(tree.getRoot());</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Tree에서 노드 찾기</span></div><div class="line">    <span class="keyword">int</span> number;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Input number to search &gt;&gt; "</span>;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; number;</div><div class="line"></div><div class="line">    TreeNode&lt;<span class="keyword">int</span>&gt;* found = tree.search(tree.getRoot(), number);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (found != null) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Found node."</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; *found;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Not found node."</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="구현결과"><a href="#구현결과" class="headerlink" title="구현결과"></a>구현결과</h2><p>찾을 노드 데이터로 5를 넣었을 땐 정상적으로 찾아지고, 해당 노드의 정보를 출력해 준다.<br>5는 오른쪽 자식 노드가 없으므로 오른쪽 노드는 출력되지 않은 모습이다.</p>
+<p><img src="/uploads/bst_result.png" alt=""></p>
+<p>찾을 노드 데이터로 239를 넣었더니 못찾았다고 정상 수행된다.</p>
+<p><img src="/uploads/bst_result_2.png" alt=""></p>
+
+            <div class="article-tags">
+              
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Binary-search-tree/">Binary search tree</a>, <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/알고리즘/">알고리즘</a>, <a class="tag-link" href="/tags/이진-탐색-트리/">이진 탐색 트리</a>, <a class="tag-link" href="/tags/자료구조/">자료구조</a>
+    </div>
+
+              <br><br>
+            </div>
+            
+        
+        </div>
+        
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://lx5475.github.io/2017/07/24/algorithm/algorithm-bianry-search-tree/" data-id="cj5hnpy110052k0vam2xq1h27" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://lx5475.github.io/2017/07/24/algorithm/algorithm-bianry-search-tree/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/24/algorithm/algorithm-bianry-search-tree/">댓글</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-geumsons/geumsons-course-1" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -258,7 +410,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5hma6yf006t3uvakc9gqb9q" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5hnpy360077k0vaye9ai0vc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -398,8 +550,9 @@ ga('send', 'pageview');
 <p>2) “xml에 정의한 뷰를 불러오려면 <code>findViewById()</code>를 사용하는구나~”</p>
 <p>3) “TextView의 글자를 바꾸려면 <code>setText()</code>를 사용하는구나!”</p>
 </blockquote>
-<p>간단하죠?<br>이 코드를 눈감고 못 쓰신다고 해서 코딩을 못하는게 아니라는 겁니다!</p>
-<h2 id="저도-물론-눈감고-못씁니다-기억안날땐-그때-그때-찾아보면서-그렇게-익혀나가면-되는겁니다"><a href="#저도-물론-눈감고-못씁니다-기억안날땐-그때-그때-찾아보면서-그렇게-익혀나가면-되는겁니다" class="headerlink" title="저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다."></a>저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다.</h2><h2 id="오늘-배운걸로-해볼-수-있는-것들"><a href="#오늘-배운걸로-해볼-수-있는-것들" class="headerlink" title="오늘 배운걸로 해볼 수 있는 것들"></a>오늘 배운걸로 해볼 수 있는 것들</h2><p>오늘 배운 OnClickListener를 이용해서 아래와 같은 것도 시도 해 보세요.<br>여러분의 상상력을 동원해서 에러와 맞서싸우며 앱을 가지고 놀아보세요!</p>
+<p>간단하죠?<br>이 코드를 눈감고 못 쓰신다고 해서 코딩을 못하는게 아니라는 겁니다!<br>저도 물론 눈감고 못씁니다. 기억안날땐 그때 그때 찾아보면서 그렇게 익혀나가면 되는겁니다.</p>
+<hr>
+<h2 id="오늘-배운걸로-해볼-수-있는-것들"><a href="#오늘-배운걸로-해볼-수-있는-것들" class="headerlink" title="오늘 배운걸로 해볼 수 있는 것들"></a>오늘 배운걸로 해볼 수 있는 것들</h2><p>오늘 배운 OnClickListener를 이용해서 아래와 같은 것도 시도 해 보세요.<br>여러분의 상상력을 동원해서 에러와 맞서싸우며 앱을 가지고 놀아보세요!</p>
 <blockquote>
 <p>1) 버튼을 클릭하면 텍스트 뷰에 있는 값을 Log 또는 Toast 메세지로 출력하기</p>
 <p>2) 버튼을 클릭하면 텍스트 뷰의 글자 크기가 커지도록 하기</p>
@@ -426,7 +579,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5hma6yi006v3uvau9fgrnsv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5hnpy380079k0vakpmg5ucb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -561,7 +714,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5hma6y5006f3uvalan0pkkq" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5hnpy2q006rk0va4vtf6ved" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -694,7 +847,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5hma6y3006d3uvagou01ar7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5hnpy2t006tk0varlpas2ni" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -827,7 +980,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5hma6y0006b3uvavhrv2krg" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5hnpy2p006pk0vaq69gtrwt" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -960,7 +1113,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5hma6xv00693uvav7ussj3n" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5hnpy2n006nk0va4h9hkruu" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1093,7 +1246,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5hma6xs00673uvarfiq8f7n" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5hnpy2l006lk0vaofbmyk5w" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1226,7 +1379,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5hma6xk00633uva3k8r1cxl" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5hnpy2d006hk0vahpae2fb0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1359,7 +1512,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-28/" data-id="cj5hma6xj00613uvaoubk2ff6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-28/" data-id="cj5hnpy2b006fk0valcmy1sws" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1437,141 +1590,8 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-arts/arts-by-me-27" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/arts/arts-by-me-27/">불꽃 캐릭터</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/arts/arts-by-me-27/">
-            <time datetime="2017-07-22T05:59:55.000Z" itemprop="datePublished">2017-07-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><img src="/uploads/arts/20160128.png" alt=""></p>
-<h2 id="2016년-1월-28일"><a href="#2016년-1월-28일" class="headerlink" title="2016년 1월 28일"></a>2016년 1월 28일</h2><p>공모전에 나가면서 디자인한 열감지 캐릭터다.</p>
-
-            <div class="article-tags">
-              
-              <br><br>
-            </div>
-            
-        
-        </div>
-        
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/" data-id="cj5hma6xi005z3uvae4vvvz7s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-27/">댓글</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">다음 &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">다음 &raquo;</a>
     </nav>
 </section>
             
@@ -1582,7 +1602,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">카테고리</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arts-By-Me/">Arts By Me</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Arts-By-Me/">Arts By Me</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/비전공자를-위한-안드로이드-강의/">비전공자를 위한 안드로이드 강의</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/안녕용산사/">안녕용산사</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -1592,6 +1612,25 @@ ga('send', 'pageview');
         <h3 class="widget-title">최근 글</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/24/algorithm/algorithm-bianry-search-tree/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2017/07/24/algorithm/algorithm-bianry-search-tree/" class="title">\[C++\] 이진 탐색 트리 구현하기 (Binary Search Tree)</a></p>
+                            <p class="item-date"><time datetime="2017-07-24T04:26:42.000Z" itemprop="datePublished">2017-07-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1669,25 +1708,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/07/22/arts/arts-by-me-32/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Arts-By-Me/">Arts By Me</a></p>
-                            <p class="item-title"><a href="/2017/07/22/arts/arts-by-me-32/" class="title">D-2</a></p>
-                            <p class="item-date"><time datetime="2017-07-22T06:08:55.000Z" itemprop="datePublished">2017-07-22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1697,7 +1717,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1706,7 +1726,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">태그 클라우드</h3>
         <div class="widget tagcloud">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 16.67px;">Android</a> <a href="/tags/Bundle/" style="font-size: 10px;">Bundle</a> <a href="/tags/Custom/" style="font-size: 10px;">Custom</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Intent/" style="font-size: 10px;">Intent</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Parcel/" style="font-size: 10px;">Parcel</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Serializable/" style="font-size: 10px;">Serializable</a> <a href="/tags/Shortcut/" style="font-size: 10px;">Shortcut</a> <a href="/tags/activity/" style="font-size: 10px;">activity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/intent/" style="font-size: 10px;">intent</a> <a href="/tags/intro/" style="font-size: 10px;">intro</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/parcelable/" style="font-size: 10px;">parcelable</a> <a href="/tags/splash/" style="font-size: 10px;">splash</a> <a href="/tags/static-redirect/" style="font-size: 10px;">static redirect</a> <a href="/tags/강의/" style="font-size: 10px;">강의</a> <a href="/tags/개발/" style="font-size: 10px;">개발</a> <a href="/tags/개발자/" style="font-size: 13.33px;">개발자</a> <a href="/tags/넘기기/" style="font-size: 10px;">넘기기</a> <a href="/tags/대만/" style="font-size: 16.67px;">대만</a> <a href="/tags/만드는법/" style="font-size: 10px;">만드는법</a> <a href="/tags/만들기/" style="font-size: 10px;">만들기</a> <a href="/tags/바로가기/" style="font-size: 10px;">바로가기</a> <a href="/tags/바탕화면/" style="font-size: 10px;">바탕화면</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/백엔드/" style="font-size: 10px;">백엔드</a> <a href="/tags/버튼/" style="font-size: 10px;">버튼</a> <a href="/tags/버튼-클릭/" style="font-size: 10px;">버튼 클릭</a> <a href="/tags/비전공자/" style="font-size: 13.33px;">비전공자</a> <a href="/tags/생성/" style="font-size: 10px;">생성</a> <a href="/tags/서버/" style="font-size: 10px;">서버</a> <a href="/tags/스플래시/" style="font-size: 10px;">스플래시</a> <a href="/tags/아이콘/" style="font-size: 10px;">아이콘</a> <a href="/tags/안드로이드/" style="font-size: 20px;">안드로이드</a> <a href="/tags/안드로이드-강의/" style="font-size: 13.33px;">안드로이드 강의</a> <a href="/tags/안드로이드-강좌/" style="font-size: 13.33px;">안드로이드 강좌</a> <a href="/tags/액티비티-전환/" style="font-size: 10px;">액티비티 전환</a> <a href="/tags/앱/" style="font-size: 13.33px;">앱</a> <a href="/tags/앱-개발/" style="font-size: 13.33px;">앱 개발</a> <a href="/tags/앱개발/" style="font-size: 13.33px;">앱개발</a> <a href="/tags/어플/" style="font-size: 13.33px;">어플</a> <a href="/tags/오브젝트/" style="font-size: 10px;">오브젝트</a> <a href="/tags/용산사/" style="font-size: 16.67px;">용산사</a> <a href="/tags/이벤트/" style="font-size: 10px;">이벤트</a> <a href="/tags/인텐트/" style="font-size: 10px;">인텐트</a> <a href="/tags/인트로/" style="font-size: 10px;">인트로</a> <a href="/tags/점괘/" style="font-size: 16.67px;">점괘</a> <a href="/tags/정보-전송/" style="font-size: 13.33px;">정보 전송</a> <a href="/tags/주사위/" style="font-size: 10px;">주사위</a> <a href="/tags/처리/" style="font-size: 10px;">처리</a> <a href="/tags/클릭/" style="font-size: 10px;">클릭</a> <a href="/tags/타이페이/" style="font-size: 16.67px;">타이페이</a> <a href="/tags/통신/" style="font-size: 13.33px;">통신</a> <a href="/tags/프래그먼트/" style="font-size: 10px;">프래그먼트</a> <a href="/tags/하는-방법/" style="font-size: 10px;">하는 방법</a> <a href="/tags/한글/" style="font-size: 10px;">한글</a> <a href="/tags/한글깨짐/" style="font-size: 10px;">한글깨짐</a> <a href="/tags/해석/" style="font-size: 16.67px;">해석</a> <a href="/tags/화면-전환/" style="font-size: 10px;">화면 전환</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 16.67px;">Android</a> <a href="/tags/Binary-search-tree/" style="font-size: 10px;">Binary search tree</a> <a href="/tags/Bundle/" style="font-size: 10px;">Bundle</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Custom/" style="font-size: 10px;">Custom</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Intent/" style="font-size: 10px;">Intent</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Parcel/" style="font-size: 10px;">Parcel</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Serializable/" style="font-size: 10px;">Serializable</a> <a href="/tags/Shortcut/" style="font-size: 10px;">Shortcut</a> <a href="/tags/activity/" style="font-size: 10px;">activity</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/intent/" style="font-size: 10px;">intent</a> <a href="/tags/intro/" style="font-size: 10px;">intro</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/parcelable/" style="font-size: 10px;">parcelable</a> <a href="/tags/splash/" style="font-size: 10px;">splash</a> <a href="/tags/static-redirect/" style="font-size: 10px;">static redirect</a> <a href="/tags/강의/" style="font-size: 10px;">강의</a> <a href="/tags/개발/" style="font-size: 10px;">개발</a> <a href="/tags/개발자/" style="font-size: 13.33px;">개발자</a> <a href="/tags/넘기기/" style="font-size: 10px;">넘기기</a> <a href="/tags/대만/" style="font-size: 16.67px;">대만</a> <a href="/tags/만드는법/" style="font-size: 10px;">만드는법</a> <a href="/tags/만들기/" style="font-size: 10px;">만들기</a> <a href="/tags/바로가기/" style="font-size: 10px;">바로가기</a> <a href="/tags/바탕화면/" style="font-size: 10px;">바탕화면</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/백엔드/" style="font-size: 10px;">백엔드</a> <a href="/tags/버튼/" style="font-size: 10px;">버튼</a> <a href="/tags/버튼-클릭/" style="font-size: 10px;">버튼 클릭</a> <a href="/tags/비전공자/" style="font-size: 13.33px;">비전공자</a> <a href="/tags/생성/" style="font-size: 10px;">생성</a> <a href="/tags/서버/" style="font-size: 10px;">서버</a> <a href="/tags/스플래시/" style="font-size: 10px;">스플래시</a> <a href="/tags/아이콘/" style="font-size: 10px;">아이콘</a> <a href="/tags/안드로이드/" style="font-size: 20px;">안드로이드</a> <a href="/tags/안드로이드-강의/" style="font-size: 13.33px;">안드로이드 강의</a> <a href="/tags/안드로이드-강좌/" style="font-size: 13.33px;">안드로이드 강좌</a> <a href="/tags/알고리즘/" style="font-size: 10px;">알고리즘</a> <a href="/tags/액티비티-전환/" style="font-size: 10px;">액티비티 전환</a> <a href="/tags/앱/" style="font-size: 13.33px;">앱</a> <a href="/tags/앱-개발/" style="font-size: 13.33px;">앱 개발</a> <a href="/tags/앱개발/" style="font-size: 13.33px;">앱개발</a> <a href="/tags/어플/" style="font-size: 13.33px;">어플</a> <a href="/tags/오브젝트/" style="font-size: 10px;">오브젝트</a> <a href="/tags/용산사/" style="font-size: 16.67px;">용산사</a> <a href="/tags/이벤트/" style="font-size: 10px;">이벤트</a> <a href="/tags/이진-탐색-트리/" style="font-size: 10px;">이진 탐색 트리</a> <a href="/tags/인텐트/" style="font-size: 10px;">인텐트</a> <a href="/tags/인트로/" style="font-size: 10px;">인트로</a> <a href="/tags/자료구조/" style="font-size: 10px;">자료구조</a> <a href="/tags/점괘/" style="font-size: 16.67px;">점괘</a> <a href="/tags/정보-전송/" style="font-size: 13.33px;">정보 전송</a> <a href="/tags/주사위/" style="font-size: 10px;">주사위</a> <a href="/tags/처리/" style="font-size: 10px;">처리</a> <a href="/tags/클릭/" style="font-size: 10px;">클릭</a> <a href="/tags/타이페이/" style="font-size: 16.67px;">타이페이</a> <a href="/tags/통신/" style="font-size: 13.33px;">통신</a> <a href="/tags/프래그먼트/" style="font-size: 10px;">프래그먼트</a> <a href="/tags/하는-방법/" style="font-size: 10px;">하는 방법</a> <a href="/tags/한글/" style="font-size: 10px;">한글</a> <a href="/tags/한글깨짐/" style="font-size: 10px;">한글깨짐</a> <a href="/tags/해석/" style="font-size: 16.67px;">해석</a> <a href="/tags/화면-전환/" style="font-size: 10px;">화면 전환</a>
         </div>
     </div>
 
