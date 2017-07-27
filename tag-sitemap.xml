@@ -415,6 +415,13 @@
     </url>
 
     <url>
+        <loc>http://lx5475.github.io/tags/%EC%A0%95%EB%B3%B4-%EC%A0%84%EC%86%A1/</loc>
+        <lastmod>2017-07-23T15:59:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://lx5475.github.io/tags/%ED%94%84%EB%9E%98%EA%B7%B8%EB%A8%BC%ED%8A%B8/</loc>
         <lastmod>2017-07-23T15:59:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -430,13 +437,6 @@
 
     <url>
         <loc>http://lx5475.github.io/tags/Fragment/</loc>
-        <lastmod>2017-07-23T15:59:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://lx5475.github.io/tags/%EC%A0%95%EB%B3%B4-%EC%A0%84%EC%86%A1/</loc>
         <lastmod>2017-07-23T15:59:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -499,50 +499,50 @@
     </url>
 
     <url>
+        <loc>http://lx5475.github.io/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/</loc>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://lx5475.github.io/tags/%ED%99%94%EB%A9%B4-%EC%A0%84%ED%99%98/</loc>
-        <lastmod>2017-07-27T15:09:43.000Z</lastmod>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://lx5475.github.io/tags/Intent/</loc>
-        <lastmod>2017-07-27T15:09:43.000Z</lastmod>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://lx5475.github.io/tags/%EC%9D%B8%ED%85%90%ED%8A%B8/</loc>
-        <lastmod>2017-07-27T15:09:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://lx5475.github.io/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/</loc>
-        <lastmod>2017-07-27T15:09:53.000Z</lastmod>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://lx5475.github.io/tags/%EB%B9%84%EC%A0%84%EA%B3%B5%EC%9E%90/</loc>
-        <lastmod>2017-07-27T15:09:53.000Z</lastmod>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://lx5475.github.io/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B0%95%EC%9D%98/</loc>
-        <lastmod>2017-07-27T15:09:53.000Z</lastmod>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://lx5475.github.io/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B0%95%EC%A2%8C/</loc>
-        <lastmod>2017-07-27T15:09:53.000Z</lastmod>
+        <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

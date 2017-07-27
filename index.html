@@ -187,7 +187,10 @@ ga('send', 'pageview');
             <p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br>이 시간에 배울 내용은 안드로이드 앱에서 화면을 전환하고, 전환 시에 데이터도 넘겨보는 작업입니다.</p>
 <p>이 모든 작업에 이용되는 것은 바로 <a href="https://www.google.co.kr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=6&amp;ved=0ahUKEwisl53GlKfVAhUDV7wKHVOkCvUQFghOMAU&amp;url=https%3A%2F%2Fdeveloper.android.com%2Freference%2Fandroid%2Fcontent%2FIntent.html&amp;usg=AFQjCNFUGnBds6gTcB1nJHbIQ-MYUfEePQ" rel="external nofollow noopener noreferrer" target="_blank">Intent</a> 라는 클래스입니다.</p>
 <p>인텐트로는 많은 것들을 할 수 있지만, 가장 기본적인 것 두 가지만 배워보도록 하겠습니다. 첫번째 화면전환, 두번째 데이터 전달입니다.</p>
-<h2 id="예제-앱은-어떤-앱인가요"><a href="#예제-앱은-어떤-앱인가요" class="headerlink" title="예제 앱은 어떤 앱인가요?"></a>예제 앱은 어떤 앱인가요?</h2><p>A라고 적힌 화면을 누르면 B라고 적힌 화면으로 이동하는 앱입니다.<br><br>추가로, A라고 적힌 화면을 누르면 A 액티비티에서 보낸 내용을 B에서 받아서 표시하는 것도 해 볼 것입니다.</p>
+<hr>
+<h2 id="예제-앱은-어떤-앱인가요"><a href="#예제-앱은-어떤-앱인가요" class="headerlink" title="예제 앱은 어떤 앱인가요?"></a>예제 앱은 어떤 앱인가요?</h2><p><img src="/uploads/geumsons/geumsons_3_0.png" alt=""></p>
+<p>A라고 적힌 화면을 누르면 B라고 적힌 화면으로 이동하는 앱입니다.<br><br>추가로, A라고 적힌 화면을 누르면 A 액티비티에서 보낸 내용을 B에서 받아서 표시하는 것도 해 볼 것입니다.</p>
+<hr>
 <h2 id="화면-구성하기"><a href="#화면-구성하기" class="headerlink" title="화면 구성하기"></a>화면 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><code>activity_main.xml</code>은 첫번째 화면인 ‘A’가 표시된 화면입니다.<br><code>@color/colorAccent</code> 색상을 가진 배경 <code>rl_background</code>를 클릭하면 B가적힌 화면으로 이동하도록 할 것입니다.</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/rl_background"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@color/colorAccent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.lx5475.course_2_intent.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"100sp"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"#FFF"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"A"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="activity-sub-xml"><a href="#activity-sub-xml" class="headerlink" title="activity_sub.xml"></a>activity_sub.xml</h3><p><code>res &gt; layout</code> 폴더를 오른쪽 클릭해서 새로운 레이아웃 파일을 만드세요. 여기서는 이름을 <code>activity_sub.xml</code>라고 지어주었습니다.<br>TextView 안에는 ‘B’라고 적어두었고, 차후에 A화면에서 보낸 데이터를 받아 표시하기 위해 TextView의 id를 <code>tv_value</code>라고 지어두었습니다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@color/colorPrimaryDark"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.lx5475.course_2_intent.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tv_value"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"100sp"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"#FFF"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"B"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -195,16 +198,20 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_sub);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="MainActivity-java"><a href="#MainActivity-java" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h3><p><code>MainActivity.java</code>로 돌아가서 <code>rl_background</code>에 OnClickListener를 붙이고, 화면전환 코드를 적어줍니다.<br><code>Intent intent = new Intent(현재 액티비티, 전환할 액티비티)</code> 방식으로 적어주고, <code>startActivity(intent)</code>라는 명령을 통해서 화면전환을 실행합니다.</p>
 <p>이 방법으로 화면이 전환될때는, 전환 된 화면에서 뒤로가기(Back) 키를 누르면 다시 원래 화면으로 돌아오게 됩니다.<br>그것을 원치 않을 경우에 <code>startActivity(...)</code> 뒤에 <code>finish()</code>를 하여 현재 액티비티의 생명을 끊어주세요…ㅎㅎ<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        RelativeLayout rl_background = (RelativeLayout) findViewById(R.id.rl_background);</div><div class="line">        <span class="comment">// 배경을 클릭하면</span></div><div class="line">        rl_background.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="comment">// Main -&gt; SubActivity로 이동</span></div><div class="line">                Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, SubActivity.class);</div><div class="line">                <span class="comment">// 화면 전환 시작</span></div><div class="line">                startActivity(intent);</div><div class="line">                <span class="comment">// 화면전환 후 이 페이지로 오기를 원치 않으면</span></div><div class="line">                <span class="comment">// finish();</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
 <h2 id="AndroidManifest에-새-액티비티-등록하기"><a href="#AndroidManifest에-새-액티비티-등록하기" class="headerlink" title="AndroidManifest에 새 액티비티 등록하기"></a>AndroidManifest에 새 액티비티 등록하기</h2><p>아기가 태어나면 출생신고를 해야하는 것 처럼, 안드로이드에서도 새로운 액티비티를 추가하면 그것을 <code>AndroidManifest.xml</code>에 적어주어야합니다. 그렇지 않고 새로운 액티비티에 접근하려하면 오류가 납니다.</p>
 <p><code>&lt;activity android:name=&quot;.SubActivity&quot;&gt;&lt;/activity&gt;</code>라는 코드를 추가 해 줍시다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">package</span>=<span class="string">"com.lx5475.course_2_intent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".SubActivity"</span>&gt;</span><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
 <h2 id="화면전환-시-데이터-넘기기"><a href="#화면전환-시-데이터-넘기기" class="headerlink" title="화면전환 시 데이터 넘기기"></a>화면전환 시 데이터 넘기기</h2><p>화면전환 시 데이터 넘기기는 앱의 필수기능이라 할 수 있죠.<br><br>예를들어 회원가입 절차에서 다음 화면으로 넘어갈때라던가, 리스트를 클릭하면 정보를 알려주는 화면으로 넘어갈때라던가 사소한 곳에서도 필요합니다.</p>
 <h3 id="MainActivity-java-1"><a href="#MainActivity-java-1" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h3><p>Intent에 정보를 싣는(put) 것은 <code>putExtra(키, 값)</code> 방식으로 할 수 있습니다. 앞의 키(key)는 뒤의 값(value)에 대한 별명 같은겁니다.<br><br>예를 들어서 주소인 <code>String address = &quot;부산광역시 금정구 장전동&quot;</code>이라는 값을 다음 액티비티에 전달해야한다면, <code>intent.putExtra(&quot;address&quot;, address)</code>라는 식으로 전달할 수 있습니다. 키는 String 타입이어야 하지만, 뒤의 값은 int, float, string, char 등 원시타입 모두 넣을 수 있습니다.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        RelativeLayout rl_background = (RelativeLayout) findViewById(R.id.rl_background);</div><div class="line">        rl_background.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, SubActivity.class);</div><div class="line">                <span class="comment">// 추가한 코드</span></div><div class="line">                intent.putExtra(<span class="string">"name"</span>, <span class="string">"금손"</span>);</div><div class="line">                startActivity(intent);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="SubActivity-java-1"><a href="#SubActivity-java-1" class="headerlink" title="SubActivity.java"></a>SubActivity.java</h3><p>이전 액티비티에서 보낸 인텐트를 받을 때는 <code>getIntent()</code> 메소드를 사용하여 받아주면됩니다. 그 인텐트에 보낸 데이터가 있다면 받을 수 있겠죠? <code>intent.get&lt;Type&gt;Extra(키)</code> 메소드로 받을 수 있습니다. 예제에서는 “금손”이라는 String 타입의 데이터를 보냈으니 <code>intent.getStringExtra(&quot;name&quot;)</code>이라고 해 주었습니다.</p>
 <p>그리고 해당 정보를 <code>tv_value</code>라는데 표시(setText) 해 주었습니다.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_sub);</div><div class="line"></div><div class="line">        Intent intent = getIntent();</div><div class="line">        String value = intent.getStringExtra(<span class="string">"name"</span>);</div><div class="line"></div><div class="line">        TextView tv_value = (TextView) findViewById(R.id.tv_value);</div><div class="line">        tv_value.setText(value);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
 <h2 id="Run"><a href="#Run" class="headerlink" title="Run!"></a>Run!</h2><p>이제 실행해서 직접 어떻게 앱이 돌아가는지 확인해보세요.</p>
 <p><img src="/uploads/geumsons/geumsons_3_1.png" alt=""></p>
 <p>제대로 실행되지 않는다면 오류 코드를 복사해서 댓글로 남겨주시면 제가 빠르게 해결해드리도록 하겠습니다!ㅎㅎ</p>
+<hr>
 <h2 id="심화과정"><a href="#심화과정" class="headerlink" title="심화과정"></a>심화과정</h2><p>Intent는 실로 다양한 일을 할 수 있습니다.<br>다른 앱도 실행시킬 수 있고, 메일이나 문자를 보낼 수도 있습니다.</p>
 <p>강의에서는 intent로 보낼 수 있는 데이터 타입은 원시타입 뿐이라고 했으나, <code>parcelable</code>을 이용하여 자신이 직접 만든 객체를 통째로 보낼 수도 있습니다. <code>parcelable</code>로 커스텀 객체를 넘기는 방법은 <a href="https://lx5475.github.io/2016/06/27/android-parcelable/">여기</a>서 확인하세요.</p>
 
@@ -228,7 +235,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/26/geumsons/geumsons-course-3/" data-id="cj5mksg2u005byivaj71yvokv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/26/geumsons/geumsons-course-3/" data-id="cj5mkxqho00770rvast1rwo04" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -380,7 +387,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/24/algorithm/algorithm-bianry-search-tree/" data-id="cj5mksg2i0052yivakiywqlaf" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/24/algorithm/algorithm-bianry-search-tree/" data-id="cj5mkxqfg00520rva6a1nevr3" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -569,7 +576,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5mksg2k0053yivapb4fpj4u" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-1/" data-id="cj5mkxqhr00790rvar8vpawxc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -738,7 +745,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5mksg2m0056yivanc5hp6kh" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/" data-id="cj5mkxqi2007d0rvad3xeinu2" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -873,7 +880,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5mksg4h007dyivaw0r32mtn" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-34/" data-id="cj5mkxqha006t0rvahdvvqwt0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1006,7 +1013,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5mksg4f007byiva48ae1w9b" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/" data-id="cj5mkxqh8006r0rvanjhe3ydb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1139,7 +1146,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5mksg4d0078yiva08jpza9d" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/" data-id="cj5mkxqh6006p0rvax8g27e1p" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1272,7 +1279,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5mksg4a0074yivannaxh8vz" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-31/" data-id="cj5mkxqh4006n0rvaim7dhrp0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1405,7 +1412,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5mksg4c0076yiva2om5u510" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-30/" data-id="cj5mkxqh2006l0rvaf25pgnbd" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1538,7 +1545,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5mksg48006zyiva9va47dz7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://lx5475.github.io/2017/07/22/arts/arts-by-me-29/" data-id="cj5mkxqgu006h0rvawgctd1kl" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
