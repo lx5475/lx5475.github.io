@@ -8,8 +8,53 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>금손의 예술이 있는 개발 블로그</description>
-    <pubDate>Thu, 27 Jul 2017 15:14:07 GMT</pubDate>
+    <pubDate>Tue, 01 Aug 2017 14:31:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>비전공자를 위한 안드로이드 강의, 4강 리스트 만들기!</title>
+      <link>http://lx5475.github.io/2017/07/28/geumsons/geumsons-course-4/</link>
+      <guid>http://lx5475.github.io/2017/07/28/geumsons/geumsons-course-4/</guid>
+      <pubDate>Fri, 28 Jul 2017 08:15:18 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.&lt;br&gt;&lt;br&gt;이번 시간에는 리스트를 만들고 개별 클릭이벤트를 받아보는 앱을 만들겁니다. 리스트를 사용한 앱은 무엇이있을까요? 간단하게는 카카오톡 친구목록이 될 수 있을 것이고요, 여러분 
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>안녕하세요, 비전공자를 위한 안드로이드 강의의 금손입니다.<br><br>이번 시간에는 리스트를 만들고 개별 클릭이벤트를 받아보는 앱을 만들겁니다. 리스트를 사용한 앱은 무엇이있을까요? 간단하게는 카카오톡 친구목록이 될 수 있을 것이고요, 여러분 인터넷 브라우저의 방문기록이나 즐겨찾기 목록도 다 리스트를 사용한 것이겠죠.</p>
+<p>이렇듯 리스트는 우리 주위에 공기처럼 늘 존재 해 왔답니다. 페이스북이나 유튜브 처럼 카드로 피드가 뜨는 경우에는 리스트뷰 대신 RecyclerView와 CardView를 사용하지만 이들도 결국 ListView의 확장이라 보시면 되겠습니다.</p>
+<h2 id="어떤-앱을-만들-거죠"><a href="#어떤-앱을-만들-거죠" class="headerlink" title="어떤 앱을 만들 거죠!?"></a>어떤 앱을 만들 거죠!?</h2><p><code>내가 좋아하는 음식</code> 목록을 리스트로 보여주는 초간단 앱을 만들 예정입니다. 목록은 모두 하드코딩(코드 상에 손수 미리 적어놓음..) 되어있구요.</p>
+<p>자 그럼 새로운 프로젝트를 만들어 시작해봅시다.</p>
+<hr>
+<h2 id="정보-준비하기"><a href="#정보-준비하기" class="headerlink" title="정보 준비하기"></a>정보 준비하기</h2><h3 id="strings-xml"><a href="#strings-xml" class="headerlink" title="strings.xml"></a>strings.xml</h3><p><code>strings.xml</code>을 너무 안써서 이번시간에 간단히 써 보려고 합니다. 앱에 들어가는 안내문이나 모든 시스템 문구들은 여기에 넣어두고 사용하는 것이 좋습니다. 여러 언어로 현지화(localization) 하기 쉽고 관리도 수월하기 때문이죠. <code>res &gt; values &gt; strings.xml</code>을 열어 아래와 같이 수정 해 보세요. <code>app_name</code>부분은 여러분의 앱 이름을 나타냅니다.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"app_name"</span>&gt;</span>course_3_list<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"title_list"</span>&gt;</span>내가 좋아하는 음식들<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="UI-구성하기"><a href="#UI-구성하기" class="headerlink" title="UI 구성하기"></a>UI 구성하기</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><p><img src="/uploads/geumsons/g_4_1.png" alt=""></p>
+<p>간단히 TextView 아래에 ListView를 배치 시켜 놓았습니다.<br>TextView의 <code>android:text</code> 속성에 주목 해 주세요. 이것은 <code>res &gt; values &gt; strings.xml</code>에 위치한 <code>title_list</code>라는 문자열 리소스를 사용한다는 말 입니다. <code>strings.xml</code>에는 ‘내가 좋아하는 음식들’이라고 미리 적어두었죠? 그럼 그 문자를 사용할 수 있게됩니다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.lx5475.course_3_list.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tv_title"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"@string/title_list"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:textStyle</span>=<span class="string">"bold"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/lv_foods"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_below</span>=<span class="string">"@+id/tv_title"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="리스트-만들기"><a href="#리스트-만들기" class="headerlink" title="리스트 만들기"></a>리스트 만들기</h2><h3 id="MainActivity-java"><a href="#MainActivity-java" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h3><p>부분별로 조명하면서 설명 해 드리겠습니다.</p>
+<ul>
+<li><p><code>ListView lv_foods = (ListView) findViewById(R.id.lv_foods);</code>: 사용 할 리스트뷰를 요로코롬 불러왔습니다. 변수명은 id랑 똑같이 지어놓았습니다.</p>
+</li>
+<li><p><code>String[] foods = {&quot;계란말이&quot;, &quot;된장국&quot;, &quot;초밥&quot;, &quot;제육볶음&quot;, &quot;나시고랭&quot;};</code>: String 배열을 만들고 거기에 음식 몇 가지를 넣어놓았습니다.</p>
+</li>
+<li><p><code>ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(this, android.R.layout.simple_list_item_1);</code>: ArrayAdapter? 리스트를 배우러 왔는데 이게뭐야! 하고 생소 해 하실 수도 있습니다. 간단하게 비유하면 listView는 총이고 ArrayAdapter등의 listViewAdapter는 탄창, ArrayAdapter에 담긴 데이터들은 탄약(총알)입니다. <del>~ 너무 잘 비유한거같아서 저 자신이 대견스럽네요 ㅋㅋㅋ ~</del> <br><br> <code>ArrayAdapter&lt;String&gt;</code>은는 String 형식의 데이터를 담는 ArrayAdapter입니다. 주석에도 표시되어 있지만 <code>android.R.layout.simple_list_item_1</code>이란 리스트뷰의 디자인 스타일을 말하는 것입니다. 제공되는 스타일 말고 원하는 대로 리스트뷰를 디자인 하고 싶다면 직접 Adapter를 만들면됩니다. BaseAdapter 클래스를 상속받아서요. 이 역시도 필수 과정이니 추후 강의에서 다룰 예정입니다.</p>
+</li>
+<li><p><code>adapter.addAll(foods);</code>: foods 배열에 있는 데이터들을 adpater에 싣습니다. 탄창에 탄약을 채워 넣는거죠!</p>
+</li>
+<li><p><code>lv_foods.setAdapter(adapter);</code>: 만든 adapter를 리스트뷰에 설정해 줍니다. 총기에 탄약을 채운 탄창을 넣어줍니다!</p>
+</li>
+<li><p><code>lv_foods.setOnItemClickListener(...)</code>: 우리는 개별 리스트 아이템을 클릭하면 ‘~를 클릭했습니다.’라고 메세지가 뜨는 걸 만들 것이기 때문에, 개별 아이템의 클릭 이벤트를 처리해주는 <code>OnItemClickListener</code>를 리스트뷰에 붙였습니다. 이 블록안에 있는 부분은 외우지 마시고, 필요할 때마다 찾아보시면 되는 부분입니다. 주석을 참고 해 주세요~</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        ListView lv_foods = (ListView) findViewById(R.id.lv_foods);</div><div class="line"></div><div class="line">        String[] foods = &#123;<span class="string">"계란말이"</span>, <span class="string">"된장국"</span>, <span class="string">"초밥"</span>, <span class="string">"제육볶음"</span>, <span class="string">"나시고랭"</span>&#125;;</div><div class="line"></div><div class="line">        <span class="comment">// android.R.layout.simple_list_item_1는 안드로이드 제공하는 리스트의 기본 레이아웃</span></div><div class="line">        ArrayAdapter&lt;String&gt; adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,</div><div class="line">                android.R.layout.simple_list_item_1);</div><div class="line">        adapter.addAll(foods);</div><div class="line"></div><div class="line">        lv_foods.setAdapter(adapter);</div><div class="line"></div><div class="line">        lv_foods.setOnItemClickListener(<span class="keyword">new</span> AdapterView.OnItemClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">                <span class="comment">// 클릭한 아이템 이름 가져옴</span></div><div class="line">                ListView listview = (ListView) parent;</div><div class="line">                String clickedFood = (String) listview.getItemAtPosition(position);</div><div class="line">                <span class="comment">// 토스트 메세지로 표시</span></div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>,</div><div class="line">                        clickedFood + <span class="string">"을(를) 클릭하셨습니다."</span>, Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>실행시켰을 때 아래와 같은 화면이 나오면, 성공입니다!</p>
+<p><img src="/uploads/geumsons/g_4_2.png" alt=""></p>
+]]></content:encoded>
+      
+      <comments>http://lx5475.github.io/2017/07/28/geumsons/geumsons-course-4/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>비전공자를 위한 안드로이드 강의, 3강 화면 전환 하기</title>
@@ -161,7 +206,7 @@
     </item>
     
     <item>
-      <title>비전공자를 위한 안드로이드 강의, \#2 주사위 앱을 만들자!</title>
+      <title>비전공자를 위한 안드로이드 강의, 2강 주사위 앱을 만들자!</title>
       <link>http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/</link>
       <guid>http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/</guid>
       <pubDate>Sun, 23 Jul 2017 14:12:01 GMT</pubDate>
@@ -233,25 +278,6 @@
     </item>
     
     <item>
-      <title>Reaction</title>
-      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</link>
-      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</guid>
-      <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160708.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/a&gt;
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160708.png" alt=""></p>
-<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>그리고 그 리액션.</p>
-]]></content:encoded>
-      
-      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>D-2</title>
       <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</link>
       <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/</guid>
@@ -268,6 +294,25 @@
 ]]></content:encoded>
       
       <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-32/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Reaction</title>
+      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</link>
+      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/</guid>
+      <pubDate>Sat, 22 Jul 2017 06:08:55 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20160708.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2016년-7월-8일&quot;&gt;&lt;a href=&quot;#2016년-7월-8일&quot; class=&quot;headerlink&quot; title=&quot;2016년 7월 8일&quot;&gt;&lt;/a&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><img src="/uploads/arts/20160708.png" alt=""></p>
+<h2 id="2016년-7월-8일"><a href="#2016년-7월-8일" class="headerlink" title="2016년 7월 8일"></a>2016년 7월 8일</h2><p>그리고 그 리액션.</p>
+]]></content:encoded>
+      
+      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-33/#disqus_thread</comments>
     </item>
     
     <item>
@@ -498,25 +543,6 @@
 ]]></content:encoded>
       
       <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-19/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>괴물</title>
-      <link>http://lx5475.github.io/2017/07/22/arts/arts-by-me-17/</link>
-      <guid>http://lx5475.github.io/2017/07/22/arts/arts-by-me-17/</guid>
-      <pubDate>Sat, 22 Jul 2017 03:50:55 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;&lt;img src=&quot;/uploads/arts/20151111.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2015년-11월-11일&quot;&gt;&lt;a href=&quot;#2015년-11월-11일&quot; class=&quot;headerlink&quot; title=&quot;2015년 11월 11일
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p><img src="/uploads/arts/20151111.png" alt=""></p>
-<h2 id="2015년-11월-11일"><a href="#2015년-11월-11일" class="headerlink" title="2015년 11월 11일"></a>2015년 11월 11일</h2><p>성공한 프리랜서 디자이너님과의 만남 후…<br>나는 ‘괴물’이 되겠다고 다짐했다.</p>
-]]></content:encoded>
-      
-      <comments>http://lx5475.github.io/2017/07/22/arts/arts-by-me-17/#disqus_thread</comments>
     </item>
     
   </channel>

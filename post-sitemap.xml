@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://lx5475.github.io/2017/07/28/geumsons/geumsons-course-4/</loc>
+        <lastmod>2017-08-01T14:31:29.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/</loc>
+        <lastmod>2017-07-28T08:15:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://lx5475.github.io/2017/07/26/geumsons/geumsons-course-3/</loc>
         <lastmod>2017-07-27T15:14:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,14 +41,6 @@
     <url>
         <loc>http://lx5475.github.io/2017/07/24/algorithm/algorithm-bianry-search-tree/</loc>
         <lastmod>2017-07-27T15:08:39.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://lx5475.github.io/2017/07/23/geumsons/geumsons-course-2/</loc>
-        <lastmod>2017-07-26T14:27:37.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -359,14 +367,6 @@
     </url>
 
     <url>
-        <loc>http://lx5475.github.io/2016/01/26/android-button-tutorial/</loc>
-        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://lx5475.github.io/2016/01/27/android-intent/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -384,6 +384,14 @@
 
     <url>
         <loc>http://lx5475.github.io/2016/07/08/android-php-korean/</loc>
+        <lastmod>2017-07-15T10:55:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://lx5475.github.io/2016/01/26/android-button-tutorial/</loc>
         <lastmod>2017-07-15T10:55:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
